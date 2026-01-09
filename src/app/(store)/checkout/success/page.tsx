@@ -29,7 +29,7 @@ function OrderSuccessContent() {
         {/* Order ID */}
         <div className="bg-gray-50 rounded-lg p-4 mb-6">
           <p className="text-sm text-gray-500 mb-1">Order ID</p>
-          <p className="text-xl font-bold text-orange-500">{orderId}</p>
+          <p className="text-xl font-bold text-orange-700">{orderId}</p>
         </div>
 
         {/* What's Next */}
@@ -37,7 +37,7 @@ function OrderSuccessContent() {
           <h2 className="font-semibold text-gray-900">What&apos;s Next?</h2>
           <div className="flex items-start gap-3">
             <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <Mail className="h-4 w-4 text-orange-500" />
+              <Mail className="h-4 w-4 text-orange-700" />
             </div>
             <div>
               <p className="font-medium text-gray-900">Confirmation Email</p>
@@ -48,7 +48,7 @@ function OrderSuccessContent() {
           </div>
           <div className="flex items-start gap-3">
             <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <Package className="h-4 w-4 text-orange-500" />
+              <Package className="h-4 w-4 text-orange-700" />
             </div>
             <div>
               <p className="font-medium text-gray-900">Order Processing</p>
@@ -61,7 +61,7 @@ function OrderSuccessContent() {
 
         {/* Actions */}
         <div className="space-y-3">
-          <Button asChild className="w-full bg-orange-500 hover:bg-orange-600">
+          <Button asChild className="w-full bg-orange-700 hover:bg-orange-800">
             <Link href="/shop">
               Continue Shopping
               <ArrowRight className="h-4 w-4 ml-2" />
@@ -75,7 +75,7 @@ function OrderSuccessContent() {
         {/* Support */}
         <p className="text-sm text-gray-500 mt-6">
           Need help?{" "}
-          <Link href="/contact" className="text-orange-500 hover:underline">
+          <Link href="/contact" className="text-orange-700 hover:underline">
             Contact Support
           </Link>
         </p>
@@ -88,7 +88,7 @@ export default function OrderSuccessPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500" />
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-700" />
       </div>
     }>
       <OrderSuccessContent />

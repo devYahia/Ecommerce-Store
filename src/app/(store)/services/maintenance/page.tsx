@@ -46,14 +46,14 @@ export default function MaintenancePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Expert <span className="text-orange-500">Printer Maintenance</span> & Repair
+              Expert <span className="text-orange-700">Printer Maintenance</span> & Repair
             </h1>
             <p className="text-xl text-gray-300 mb-8">
               Keep your 3D printer running at peak performance. Our certified technicians service
               all major brands with genuine parts and professional expertise.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
+              <Button size="lg" className="bg-orange-700 hover:bg-orange-800">
                 Book Service
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -81,7 +81,7 @@ export default function MaintenancePage() {
             ].map((item) => (
               <div key={item.title} className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-orange-100 rounded-full flex items-center justify-center">
-                  <item.icon className="h-8 w-8 text-orange-500" />
+                  <item.icon className="h-8 w-8 text-orange-700" />
                 </div>
                 <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
                 <p className="text-gray-500">{item.description}</p>
@@ -103,7 +103,7 @@ export default function MaintenancePage() {
               <div key={service.title} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-lg transition-shadow">
                 <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                 <p className="text-gray-500 text-sm mb-4">{service.description}</p>
-                <p className="text-orange-500 font-bold text-lg mb-4">{service.price}</p>
+                <p className="text-orange-700 font-bold text-lg mb-4">{service.price}</p>
                 <ul className="space-y-2">
                   {service.includes.map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm text-gray-600">
@@ -145,7 +145,7 @@ export default function MaintenancePage() {
                   <input
                     type="text"
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
                   />
                 </div>
                 <div>
@@ -153,7 +153,7 @@ export default function MaintenancePage() {
                   <input
                     type="tel"
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
                   />
                 </div>
               </div>
@@ -161,13 +161,13 @@ export default function MaintenancePage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                 <input
                   type="email"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
                 />
               </div>
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Printer Brand *</label>
-                  <select required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                  <select required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700">
                     <option value="">Select brand</option>
                     {brands.map((brand) => (
                       <option key={brand} value={brand}>{brand}</option>
@@ -179,13 +179,13 @@ export default function MaintenancePage() {
                   <input
                     type="text"
                     placeholder="e.g., Ender 3 V3"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
                   />
                 </div>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Service Type *</label>
-                <select required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                <select required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700">
                   <option value="">Select service</option>
                   {services.map((service) => (
                     <option key={service.title} value={service.title}>{service.title} - {service.price}</option>
@@ -198,10 +198,10 @@ export default function MaintenancePage() {
                   rows={4}
                   required
                   placeholder="Describe the issue you're experiencing..."
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
                 />
               </div>
-              <Button type="submit" className="w-full bg-orange-500 hover:bg-orange-600">
+              <Button type="submit" className="w-full bg-orange-700 hover:bg-orange-800">
                 Submit Service Request
               </Button>
             </form>

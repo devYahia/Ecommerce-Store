@@ -59,14 +59,14 @@ export default function TrainingPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-orange-500">Learn 3D Printing</span> From The Experts
+              <span className="text-orange-700">Learn 3D Printing</span> From The Experts
             </h1>
             <p className="text-xl text-gray-300 mb-8">
               Whether you're a complete beginner or looking to master advanced techniques,
               our courses will help you achieve your 3D printing goals.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
+              <Button size="lg" className="bg-orange-700 hover:bg-orange-800">
                 View Courses
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -85,7 +85,7 @@ export default function TrainingPage() {
             {features.map((feature) => (
               <div key={feature.title} className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-orange-100 rounded-full flex items-center justify-center">
-                  <feature.icon className="h-8 w-8 text-orange-500" />
+                  <feature.icon className="h-8 w-8 text-orange-700" />
                 </div>
                 <h3 className="font-semibold text-lg mb-2">{feature.title}</h3>
                 <p className="text-gray-500">{feature.description}</p>
@@ -130,8 +130,8 @@ export default function TrainingPage() {
                     </ul>
                   </div>
                   <div className="flex items-center justify-between pt-4 border-t">
-                    <span className="text-2xl font-bold text-orange-500">{course.price}</span>
-                    <Button className="bg-orange-500 hover:bg-orange-600">
+                    <span className="text-2xl font-bold text-orange-700">{course.price}</span>
+                    <Button className="bg-orange-700 hover:bg-orange-800">
                       Enroll Now
                     </Button>
                   </div>
@@ -152,7 +152,7 @@ export default function TrainingPage() {
               specific needs and industry requirements.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
+              <Button size="lg" className="bg-orange-700 hover:bg-orange-800">
                 Request Quote
               </Button>
               <Link href="/contact">
@@ -177,7 +177,7 @@ export default function TrainingPage() {
                   <input
                     type="text"
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
                   />
                 </div>
                 <div>
@@ -185,7 +185,7 @@ export default function TrainingPage() {
                   <input
                     type="tel"
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
                   />
                 </div>
               </div>
@@ -194,12 +194,12 @@ export default function TrainingPage() {
                 <input
                   type="email"
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Select Course *</label>
-                <select required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                <select required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700">
                   <option value="">Choose a course</option>
                   {courses.map((course) => (
                     <option key={course.title} value={course.title}>{course.title} - {course.price}</option>
@@ -208,7 +208,7 @@ export default function TrainingPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Experience Level</label>
-                <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700">
                   <option>Complete Beginner</option>
                   <option>Some Experience</option>
                   <option>Intermediate</option>
@@ -220,10 +220,10 @@ export default function TrainingPage() {
                 <textarea
                   rows={3}
                   placeholder="Any specific topics you'd like to cover?"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
                 />
               </div>
-              <Button type="submit" className="w-full bg-orange-500 hover:bg-orange-600">
+              <Button type="submit" className="w-full bg-orange-700 hover:bg-orange-800">
                 Submit Registration
               </Button>
             </form>

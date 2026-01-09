@@ -51,14 +51,14 @@ export default function PrintingServicePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Professional <span className="text-orange-500">3D Printing</span> Service
+              Professional <span className="text-orange-700">3D Printing</span> Service
             </h1>
             <p className="text-xl text-gray-300 mb-8">
               Turn your digital designs into physical reality. Upload your 3D model and let our experts
               handle the rest with precision and care.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
+              <Button size="lg" className="bg-orange-700 hover:bg-orange-800">
                 Get a Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -77,7 +77,7 @@ export default function PrintingServicePage() {
             {features.map((feature) => (
               <div key={feature.title} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                 <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
-                  <feature.icon className="h-7 w-7 text-orange-500" />
+                  <feature.icon className="h-7 w-7 text-orange-700" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                 <p className="text-gray-500">{feature.description}</p>
@@ -94,7 +94,7 @@ export default function PrintingServicePage() {
           <div className="grid md:grid-cols-5 gap-4">
             {steps.map((step, index) => (
               <div key={step.step} className="text-center relative">
-                <div className="w-12 h-12 mx-auto bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">
+                <div className="w-12 h-12 mx-auto bg-orange-700 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">
                   {step.step}
                 </div>
                 <h3 className="font-semibold mb-2">{step.title}</h3>
@@ -120,7 +120,7 @@ export default function PrintingServicePage() {
               <div key={material.name} className="bg-gray-800 rounded-xl p-6 border border-gray-700">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-semibold">{material.name}</h3>
-                  <span className="text-orange-500 font-medium">{material.price}</span>
+                  <span className="text-orange-700 font-medium">{material.price}</span>
                 </div>
                 <p className="text-gray-400">{material.description}</p>
               </div>
@@ -141,7 +141,7 @@ export default function PrintingServicePage() {
                   <input
                     type="text"
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
                   />
                 </div>
                 <div>
@@ -149,7 +149,7 @@ export default function PrintingServicePage() {
                   <input
                     type="email"
                     required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
                   />
                 </div>
               </div>
@@ -157,12 +157,12 @@ export default function PrintingServicePage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
                 <input
                   type="tel"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Material Preference</label>
-                <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500">
+                <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700">
                   <option>Select material</option>
                   <option>PLA</option>
                   <option>ABS</option>
@@ -186,10 +186,10 @@ export default function PrintingServicePage() {
                 <textarea
                   rows={4}
                   placeholder="Describe your project, quantity needed, any special requirements..."
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
                 />
               </div>
-              <Button type="submit" className="w-full bg-orange-500 hover:bg-orange-600">
+              <Button type="submit" className="w-full bg-orange-700 hover:bg-orange-800">
                 Submit Quote Request
               </Button>
             </form>

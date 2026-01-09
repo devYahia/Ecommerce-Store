@@ -78,7 +78,7 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Contact Us</h2>
             <p className="text-gray-600">
               For privacy-related inquiries, contact us at{" "}
-              <a href={`mailto:${siteConfig.contact.email}`} className="text-orange-500 hover:underline">
+              <a href={`mailto:${siteConfig.contact.email}`} className="text-orange-700 hover:underline">
                 {siteConfig.contact.email}
               </a>
             </p>

@@ -146,10 +146,10 @@ export default function AdminLayout({
                 alt="Omega3D"
                 width={28}
                 height={28}
-                className="text-orange-500"
+                className="text-orange-700"
                 style={{ filter: "invert(60%) sepia(98%) saturate(1000%) hue-rotate(360deg)" }}
               />
-              <span className="text-lg font-bold text-orange-500">
+              <span className="text-lg font-bold text-orange-700">
                 Omega<span className="text-white">3D</span>
               </span>
             </Link>
@@ -168,14 +168,14 @@ export default function AdminLayout({
               className={cn(
                 "flex items-center gap-3 p-2.5 rounded-lg transition-all duration-150",
                 pathname === "/admin/account"
-                  ? "bg-orange-500/10 border border-orange-500/20"
+                  ? "bg-orange-700/10 border border-orange-700/20"
                   : "hover:bg-gray-800/50"
               )}
             >
               <div className={cn(
                 "w-9 h-9 rounded-lg flex items-center justify-center text-sm font-bold",
                 pathname === "/admin/account"
-                  ? "bg-orange-500 text-white"
+                  ? "bg-orange-700 text-white"
                   : "bg-gray-700 text-gray-300"
               )}>
                 {adminUser.avatar ? (
@@ -225,7 +225,7 @@ export default function AdminLayout({
                             className={cn(
                               "flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all duration-150 group relative",
                               isActive
-                                ? "bg-orange-500 text-white font-semibold shadow-lg shadow-orange-500/20"
+                                ? "bg-orange-700 text-white font-semibold shadow-lg shadow-orange-700/20"
                                 : "text-gray-400 hover:bg-gray-800/70 hover:text-gray-200"
                             )}
                           >
@@ -279,7 +279,7 @@ export default function AdminLayout({
               <MenuIcon className="h-5 w-5" />
             </button>
             <Link href="/admin" className="flex items-center gap-2">
-              <span className="text-lg font-bold text-orange-500">
+              <span className="text-lg font-bold text-orange-700">
                 Omega<span className="text-gray-900">3D</span>
               </span>
             </Link>

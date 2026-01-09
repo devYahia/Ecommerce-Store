@@ -28,32 +28,32 @@ export default function ContactPage() {
             
             <div className="space-y-6">
               <div className="flex gap-4">
-                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone className="h-6 w-6 text-orange-500" />
+                <div className="w-12 h-12 bg-orange-700/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Phone className="h-6 w-6 text-orange-700" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Phone</h3>
-                  <a href={`tel:${siteConfig.contact.phone}`} className="text-gray-300 hover:text-orange-500">
+                  <a href={`tel:${siteConfig.contact.phone}`} className="text-gray-300 hover:text-orange-700">
                     {siteConfig.contact.phone}
                   </a>
                 </div>
               </div>
               
               <div className="flex gap-4">
-                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail className="h-6 w-6 text-orange-500" />
+                <div className="w-12 h-12 bg-orange-700/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Mail className="h-6 w-6 text-orange-700" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Email</h3>
-                  <a href={`mailto:${siteConfig.contact.email}`} className="text-gray-300 hover:text-orange-500">
+                  <a href={`mailto:${siteConfig.contact.email}`} className="text-gray-300 hover:text-orange-700">
                     {siteConfig.contact.email}
                   </a>
                 </div>
               </div>
               
               <div className="flex gap-4">
-                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="h-6 w-6 text-orange-500" />
+                <div className="w-12 h-12 bg-orange-700/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <MapPin className="h-6 w-6 text-orange-700" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Main Store</h3>
@@ -64,8 +64,8 @@ export default function ContactPage() {
               </div>
               
               <div className="flex gap-4">
-                <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Clock className="h-6 w-6 text-orange-500" />
+                <div className="w-12 h-12 bg-orange-700/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Clock className="h-6 w-6 text-orange-700" />
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">Working Hours</h3>
@@ -142,7 +142,7 @@ export default function ContactPage() {
                 </label>
                 <textarea
                   rows={6}
-                  className="w-full px-4 py-2 border rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  className="w-full px-4 py-2 border rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-orange-700"
                   placeholder="How can we help you?"
                   required
                 ></textarea>

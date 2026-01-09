@@ -79,11 +79,11 @@ export default function RefundPolicyPage() {
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Contact Us</h2>
             <p className="text-gray-600">
               For refund inquiries, contact us at{" "}
-              <a href={`mailto:${siteConfig.contact.email}`} className="text-orange-500 hover:underline">
+              <a href={`mailto:${siteConfig.contact.email}`} className="text-orange-700 hover:underline">
                 {siteConfig.contact.email}
               </a>{" "}
               or call{" "}
-              <a href={`tel:${siteConfig.contact.phone}`} className="text-orange-500 hover:underline">
+              <a href={`tel:${siteConfig.contact.phone}`} className="text-orange-700 hover:underline">
                 {siteConfig.contact.phone}
               </a>
             </p>

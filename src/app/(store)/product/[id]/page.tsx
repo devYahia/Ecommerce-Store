@@ -309,11 +309,11 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
       <div className="bg-white border-b">
         <div className="container mx-auto px-4 py-3">
           <nav className="flex items-center gap-2 text-sm">
-            <Link href="/" className="text-gray-500 hover:text-orange-500">Home</Link>
+            <Link href="/" className="text-gray-500 hover:text-orange-700">Home</Link>
             <span className="text-gray-300">/</span>
-            <Link href="/shop" className="text-gray-500 hover:text-orange-500">Shop</Link>
+            <Link href="/shop" className="text-gray-500 hover:text-orange-700">Shop</Link>
             <span className="text-gray-300">/</span>
-            <Link href={`/brand/${product.brand.toLowerCase().replace(' ', '-')}`} className="text-gray-500 hover:text-orange-500">
+            <Link href={`/brand/${product.brand.toLowerCase().replace(' ', '-')}`} className="text-gray-500 hover:text-orange-700">
               {product.brand}
             </Link>
             <span className="text-gray-300">/</span>
@@ -338,7 +338,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                     key={index}
                     onClick={() => setSelectedImage(index)}
                     className={`w-20 h-20 rounded-lg border-2 overflow-hidden ${
-                      selectedImage === index ? "border-orange-500" : "border-gray-200"
+                      selectedImage === index ? "border-orange-700" : "border-gray-200"
                     }`}
                   >
                     <div className="w-full h-full bg-gray-100" />
@@ -354,7 +354,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
             <div>
               <Link 
                 href={`/brand/${product.brand.toLowerCase().replace(' ', '-')}`}
-                className="text-orange-500 text-sm font-medium hover:underline"
+                className="text-orange-700 text-sm font-medium hover:underline"
               >
                 {product.brand}
               </Link>
@@ -431,7 +431,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
               
               <Button 
                 onClick={handleAddToCart}
-                className="flex-1 bg-orange-500 hover:bg-orange-600 text-white h-12 text-lg"
+                className="flex-1 bg-orange-700 hover:bg-orange-800 text-white h-12 text-lg"
                 disabled={product.stock === 0}
               >
                 <ShoppingCart className="h-5 w-5 mr-2" />
@@ -455,15 +455,15 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
             {/* Trust Badges */}
             <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-200">
               <div className="flex flex-col items-center text-center">
-                <Truck className="h-6 w-6 text-orange-500 mb-1" />
+                <Truck className="h-6 w-6 text-orange-700 mb-1" />
                 <span className="text-xs text-gray-600">Free Shipping</span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <Shield className="h-6 w-6 text-orange-500 mb-1" />
+                <Shield className="h-6 w-6 text-orange-700 mb-1" />
                 <span className="text-xs text-gray-600">1 Year Warranty</span>
               </div>
               <div className="flex flex-col items-center text-center">
-                <RotateCcw className="h-6 w-6 text-orange-500 mb-1" />
+                <RotateCcw className="h-6 w-6 text-orange-700 mb-1" />
                 <span className="text-xs text-gray-600">14-Day Returns</span>
               </div>
             </div>

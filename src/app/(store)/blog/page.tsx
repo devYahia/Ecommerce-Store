@@ -64,12 +64,12 @@ export default function BlogPage() {
               key={post.id} 
               className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow"
             >
-              <div className="h-48 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
+              <div className="h-48 bg-gradient-to-br from-orange-400 to-orange-800 flex items-center justify-center">
                 <span className="text-white text-6xl font-bold opacity-20">3D</span>
               </div>
               <div className="p-6">
                 <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
-                  <span className="bg-orange-100 text-orange-600 px-2 py-1 rounded text-xs font-medium">
+                  <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs font-medium">
                     {post.category}
                   </span>
                   <span className="flex items-center gap-1">
@@ -90,7 +90,7 @@ export default function BlogPage() {
                   </span>
                   <Link 
                     href={`/blog/${post.id}`}
-                    className="flex items-center gap-1 text-orange-500 hover:text-orange-600 font-medium text-sm"
+                    className="flex items-center gap-1 text-orange-700 hover:text-orange-800 font-medium text-sm"
                   >
                     Read More <ArrowRight className="h-4 w-4" />
                   </Link>
@@ -108,9 +108,9 @@ export default function BlogPage() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-700"
             />
-            <button className="px-6 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">
+            <button className="px-6 py-2 bg-orange-700 text-white rounded-lg hover:bg-orange-800 transition-colors">
               Subscribe
             </button>
           </div>

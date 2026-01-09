@@ -194,7 +194,7 @@ export default function ProductsPage() {
           <p className="text-gray-500 text-sm">Manage your product inventory</p>
         </div>
         <Link href="/admin/products/new">
-          <Button className="bg-orange-500 hover:bg-orange-600 h-8 text-xs">
+          <Button className="bg-orange-700 hover:bg-orange-800 h-8 text-xs">
             <Plus className="h-3.5 w-3.5 mr-1.5" />
             Add Product
           </Button>
@@ -233,7 +233,7 @@ export default function ProductsPage() {
                   {selectedCategory !== "All" && (
                     <button 
                       onClick={() => setSelectedCategory("All")}
-                      className="text-[10px] text-orange-500 hover:text-orange-600"
+                      className="text-[10px] text-orange-700 hover:text-orange-800"
                     >
                       Clear
                     </button>
@@ -283,7 +283,7 @@ export default function ProductsPage() {
                     type="checkbox"
                     checked={selectedProducts.length === filteredProducts.length && filteredProducts.length > 0}
                     onChange={toggleSelectAll}
-                    className="rounded border-gray-300 text-orange-500 focus:ring-orange-500 h-3.5 w-3.5"
+                    className="rounded border-gray-300 text-orange-700 focus:ring-orange-700 h-3.5 w-3.5"
                   />
                 </th>
                 <th className="px-4 py-2.5 text-left text-[10px] font-semibold text-gray-500 uppercase tracking-wider">
@@ -319,7 +319,7 @@ export default function ProductsPage() {
                       type="checkbox"
                       checked={selectedProducts.includes(product.id)}
                       onChange={() => toggleSelect(product.id)}
-                      className="rounded border-gray-300 text-orange-500 focus:ring-orange-500 h-3.5 w-3.5"
+                      className="rounded border-gray-300 text-orange-700 focus:ring-orange-700 h-3.5 w-3.5"
                     />
                   </td>
                   <td className="px-4 py-2.5">
@@ -422,7 +422,7 @@ export default function ProductsPage() {
             <Button variant="outline" size="sm" className="h-7 w-7 p-0" disabled>
               <ChevronLeft className="h-3.5 w-3.5" />
             </Button>
-            <Button variant="outline" size="sm" className="h-7 w-7 p-0 bg-orange-500 text-white hover:bg-orange-600 border-orange-500">
+            <Button variant="outline" size="sm" className="h-7 w-7 p-0 bg-orange-700 text-white hover:bg-orange-800 border-orange-700">
               1
             </Button>
             <Button variant="outline" size="sm" className="h-7 w-7 p-0 text-xs">

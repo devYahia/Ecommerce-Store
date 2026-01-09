@@ -20,24 +20,24 @@ export function Footer() {
           {/* Contact Info */}
           <div>
             <h3 className="text-xl font-bold text-white mb-4">
-              <span className="text-orange-500">Omega</span>3D
+              <span className="text-orange-700">Omega</span>3D
             </h3>
             <ul className="space-y-3">
               {siteConfig.contact.addresses.map((address, index) => (
                 <li key={index} className="flex gap-2 text-sm">
-                  <MapPin className="h-5 w-5 flex-shrink-0 text-orange-500" />
+                  <MapPin className="h-5 w-5 flex-shrink-0 text-orange-700" />
                   <span>{address.address}</span>
                 </li>
               ))}
               <li className="flex gap-2 text-sm">
-                <Phone className="h-5 w-5 flex-shrink-0 text-orange-500" />
-                <a href={`tel:${siteConfig.contact.phone}`} className="hover:text-orange-500">
+                <Phone className="h-5 w-5 flex-shrink-0 text-orange-700" />
+                <a href={`tel:${siteConfig.contact.phone}`} className="hover:text-orange-700">
                   {siteConfig.contact.phone}
                 </a>
               </li>
               <li className="flex gap-2 text-sm">
-                <Mail className="h-5 w-5 flex-shrink-0 text-orange-500" />
-                <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-orange-500">
+                <Mail className="h-5 w-5 flex-shrink-0 text-orange-700" />
+                <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-orange-700">
                   {siteConfig.contact.email}
                 </a>
               </li>
@@ -46,23 +46,23 @@ export function Footer() {
             {/* Social Links */}
             <div className="flex gap-3 mt-6">
               <a href={siteConfig.social.facebook} target="_blank" rel="noopener noreferrer" 
-                 className="p-2 bg-gray-800 rounded-full hover:bg-orange-500 transition-colors">
+                 className="p-2 bg-gray-800 rounded-full hover:bg-orange-700 transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
               <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer"
-                 className="p-2 bg-gray-800 rounded-full hover:bg-orange-500 transition-colors">
+                 className="p-2 bg-gray-800 rounded-full hover:bg-orange-700 transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
               <a href={siteConfig.social.twitter} target="_blank" rel="noopener noreferrer"
-                 className="p-2 bg-gray-800 rounded-full hover:bg-orange-500 transition-colors">
+                 className="p-2 bg-gray-800 rounded-full hover:bg-orange-700 transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
               <a href={siteConfig.social.youtube} target="_blank" rel="noopener noreferrer"
-                 className="p-2 bg-gray-800 rounded-full hover:bg-orange-500 transition-colors">
+                 className="p-2 bg-gray-800 rounded-full hover:bg-orange-700 transition-colors">
                 <Youtube className="h-5 w-5" />
               </a>
               <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer"
-                 className="p-2 bg-gray-800 rounded-full hover:bg-orange-500 transition-colors">
+                 className="p-2 bg-gray-800 rounded-full hover:bg-orange-700 transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
@@ -73,22 +73,22 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-4">SERVICES</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/services/printing" className="hover:text-orange-500">
+                <Link href="/services/printing" className="hover:text-orange-700">
                   3D Printing Service
                 </Link>
               </li>
               <li>
-                <Link href="/services/maintenance" className="hover:text-orange-500">
+                <Link href="/services/maintenance" className="hover:text-orange-700">
                   3D Printer Maintenance
                 </Link>
               </li>
               <li>
-                <Link href="/services/training" className="hover:text-orange-500">
+                <Link href="/services/training" className="hover:text-orange-700">
                   Training
                 </Link>
               </li>
               <li>
-                <Link href="/pre-order" className="hover:text-orange-500">
+                <Link href="/pre-order" className="hover:text-orange-700">
                   Pre-Order Printers
                 </Link>
               </li>
@@ -100,27 +100,27 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-4">PRODUCTS</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/category/3d-printer-machines" className="hover:text-orange-500">
+                <Link href="/category/3d-printer-machines" className="hover:text-orange-700">
                   3D Printer Machines
                 </Link>
               </li>
               <li>
-                <Link href="/category/3d-printer-electrical-parts" className="hover:text-orange-500">
+                <Link href="/category/3d-printer-electrical-parts" className="hover:text-orange-700">
                   Electrical Parts
                 </Link>
               </li>
               <li>
-                <Link href="/category/3d-printer-mechanical-parts" className="hover:text-orange-500">
+                <Link href="/category/3d-printer-mechanical-parts" className="hover:text-orange-700">
                   Mechanical Parts
                 </Link>
               </li>
               <li>
-                <Link href="/category/filament" className="hover:text-orange-500">
+                <Link href="/category/filament" className="hover:text-orange-700">
                   Filament
                 </Link>
               </li>
               <li>
-                <Link href="/category/resin" className="hover:text-orange-500">
+                <Link href="/category/resin" className="hover:text-orange-700">
                   Resin
                 </Link>
               </li>
@@ -132,27 +132,27 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-4">CUSTOMER CARE</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/return-policy" className="hover:text-orange-500">
+                <Link href="/return-policy" className="hover:text-orange-700">
                   Return Policy
                 </Link>
               </li>
               <li>
-                <Link href="/privacy-policy" className="hover:text-orange-500">
+                <Link href="/privacy-policy" className="hover:text-orange-700">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="hover:text-orange-500">
+                <Link href="/terms" className="hover:text-orange-700">
                   Terms & Conditions
                 </Link>
               </li>
               <li>
-                <Link href="/warranty" className="hover:text-orange-500">
+                <Link href="/warranty" className="hover:text-orange-700">
                   Omega3D Shield (Warranty)
                 </Link>
               </li>
               <li>
-                <Link href="/refund-policy" className="hover:text-orange-500">
+                <Link href="/refund-policy" className="hover:text-orange-700">
                   Refund Policy
                 </Link>
               </li>

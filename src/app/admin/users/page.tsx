@@ -48,7 +48,7 @@ export default function UsersPage() {
           <h1 className="text-2xl font-bold text-gray-900">Users</h1>
           <p className="text-gray-500">Manage customer and staff accounts</p>
         </div>
-        <Button className="bg-orange-500 hover:bg-orange-600 gap-2">
+        <Button className="bg-orange-700 hover:bg-orange-800 gap-2">
           <UserPlus className="h-4 w-4" />
           Add User
         </Button>
@@ -84,7 +84,7 @@ export default function UsersPage() {
           <select
             value={roleFilter}
             onChange={(e) => setRoleFilter(e.target.value)}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
           >
             <option value="all">All Roles</option>
             <option value="Customer">Customer</option>
@@ -128,7 +128,7 @@ export default function UsersPage() {
                 <tr key={user.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-medium">
+                      <div className="w-10 h-10 bg-orange-700 rounded-full flex items-center justify-center text-white font-medium">
                         {user.name.charAt(0)}
                       </div>
                       <div>
@@ -175,7 +175,7 @@ export default function UsersPage() {
                       <button className="p-2 text-gray-400 hover:text-blue-500 hover:bg-blue-50 rounded-lg">
                         <Mail className="h-4 w-4" />
                       </button>
-                      <button className="p-2 text-gray-400 hover:text-orange-500 hover:bg-orange-50 rounded-lg">
+                      <button className="p-2 text-gray-400 hover:text-orange-700 hover:bg-orange-50 rounded-lg">
                         <Edit className="h-4 w-4" />
                       </button>
                       {user.role !== "Admin" && (
@@ -200,7 +200,7 @@ export default function UsersPage() {
             <Button variant="outline" size="sm" disabled>
               <ChevronLeft className="h-4 w-4" />
             </Button>
-            <Button variant="outline" size="sm" className="bg-orange-500 text-white hover:bg-orange-600">
+            <Button variant="outline" size="sm" className="bg-orange-700 text-white hover:bg-orange-800">
               1
             </Button>
             <Button variant="outline" size="sm">

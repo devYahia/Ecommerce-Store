@@ -34,7 +34,7 @@ export default function CategoriesPage() {
           <p className="text-gray-500">Organize your products into categories</p>
         </div>
         <Button
-          className="bg-orange-500 hover:bg-orange-600 gap-2"
+          className="bg-orange-700 hover:bg-orange-800 gap-2"
           onClick={() => {
             setEditingCategory(null);
             setShowModal(true);
@@ -67,7 +67,7 @@ export default function CategoriesPage() {
           >
             <div className="flex items-start justify-between mb-4">
               <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
-                <FolderTree className="h-6 w-6 text-orange-500" />
+                <FolderTree className="h-6 w-6 text-orange-700" />
               </div>
               <div className="flex items-center gap-2">
                 <button
@@ -75,7 +75,7 @@ export default function CategoriesPage() {
                     setEditingCategory(category);
                     setShowModal(true);
                   }}
-                  className="p-2 text-gray-400 hover:text-orange-500 hover:bg-orange-50 rounded-lg"
+                  className="p-2 text-gray-400 hover:text-orange-700 hover:bg-orange-50 rounded-lg"
                 >
                   <Edit className="h-4 w-4" />
                 </button>
@@ -128,7 +128,7 @@ export default function CategoriesPage() {
                 </label>
                 <select
                   defaultValue={editingCategory?.status || "Active"}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
                 >
                   <option value="Active">Active</option>
                   <option value="Inactive">Inactive</option>
@@ -140,7 +140,7 @@ export default function CategoriesPage() {
                 Cancel
               </Button>
               <Button
-                className="bg-orange-500 hover:bg-orange-600"
+                className="bg-orange-700 hover:bg-orange-800"
                 onClick={() => setShowModal(false)}
               >
                 {editingCategory ? "Save Changes" : "Add Category"}

@@ -5,18 +5,18 @@
 :root {
   /* ============================================
      OMEGA3D BRAND COLORS
-     Primary: Orange (#f97316 / orange-500)
+     Primary: Burnt Amber (#c2410c / orange-700)
      Secondary: Gray (#1f2937 / gray-800)
      ============================================ */
   
-  /* Brand Primary (Orange) */
-  --brand: oklch(0.702 0.195 41.116);
+  /* Brand Primary (Burnt Amber - darker, more sophisticated) */
+  --brand: oklch(0.55 0.18 35);
   --brand-foreground: oklch(1 0 0);
-  --brand-light: oklch(0.95 0.04 41.116);
-  --brand-dark: oklch(0.553 0.195 38.402);
+  --brand-light: oklch(0.92 0.06 35);
+  --brand-dark: oklch(0.45 0.18 35);
   
-  /* shadcn/ui defaults - using brand orange as primary */
-  --primary: oklch(0.702 0.195 41.116);
+  /* shadcn/ui defaults - using brand burnt amber as primary */
+  --primary: oklch(0.55 0.18 35);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);

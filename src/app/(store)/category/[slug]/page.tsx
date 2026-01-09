@@ -87,9 +87,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       <div className="bg-white border-b">
         <div className="container mx-auto px-4 py-3">
           <nav className="flex items-center gap-2 text-sm">
-            <Link href="/" className="text-gray-500 hover:text-orange-500">Home</Link>
+            <Link href="/" className="text-gray-500 hover:text-orange-700">Home</Link>
             <span className="text-gray-300">/</span>
-            <Link href="/shop" className="text-gray-500 hover:text-orange-500">Shop</Link>
+            <Link href="/shop" className="text-gray-500 hover:text-orange-700">Shop</Link>
             <span className="text-gray-300">/</span>
             <span className="text-gray-900 font-medium">{category.name}</span>
           </nav>
@@ -101,7 +101,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         <div className="container mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">{category.name}</h1>
           <p className="text-gray-300 max-w-2xl">{category.description}</p>
-          <p className="text-orange-500 mt-4">{category.productCount} products available</p>
+          <p className="text-orange-700 mt-4">{category.productCount} products available</p>
         </div>
       </div>
 
@@ -139,7 +139,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                 <div className="space-y-2">
                   {siteConfig.brands.map((brand) => (
                     <label key={brand.slug} className="flex items-center gap-2 cursor-pointer">
-                      <input type="checkbox" className="rounded border-gray-300 text-orange-500 focus:ring-orange-500" />
+                      <input type="checkbox" className="rounded border-gray-300 text-orange-700 focus:ring-orange-700" />
                       <span className="text-sm text-gray-600">{brand.name}</span>
                     </label>
                   ))}
@@ -149,7 +149,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
               {/* In Stock */}
               <div>
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" className="rounded border-gray-300 text-orange-500 focus:ring-orange-500" />
+                  <input type="checkbox" className="rounded border-gray-300 text-orange-700 focus:ring-orange-700" />
                   <span className="text-sm text-gray-600">In Stock Only</span>
                 </label>
               </div>
@@ -164,7 +164,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                 Showing <span className="font-medium">{sampleProducts.length}</span> of <span className="font-medium">{category.productCount}</span> products
               </p>
               <div className="flex items-center gap-4">
-                <select className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-orange-500 focus:border-orange-500">
+                <select className="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-orange-700 focus:border-orange-700">
                   <option>Sort by: Default</option>
                   <option>Price: Low to High</option>
                   <option>Price: High to Low</option>
@@ -188,8 +188,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                     </div>
                   </div>
                   <div className="p-4">
-                    <p className="text-xs text-orange-500 mb-1">{product.brand}</p>
-                    <h3 className="font-medium text-gray-900 group-hover:text-orange-500 transition-colors line-clamp-2 mb-2">
+                    <p className="text-xs text-orange-700 mb-1">{product.brand}</p>
+                    <h3 className="font-medium text-gray-900 group-hover:text-orange-700 transition-colors line-clamp-2 mb-2">
                       {product.name}
                     </h3>
                     <p className="text-lg font-bold text-gray-900">
@@ -204,7 +204,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             <div className="flex justify-center mt-8">
               <nav className="flex items-center gap-2">
                 <Button variant="outline" size="sm" disabled>Previous</Button>
-                <Button variant="outline" size="sm" className="bg-orange-500 text-white hover:bg-orange-600">1</Button>
+                <Button variant="outline" size="sm" className="bg-orange-700 text-white hover:bg-orange-800">1</Button>
                 <Button variant="outline" size="sm">2</Button>
                 <Button variant="outline" size="sm">3</Button>
                 <Button variant="outline" size="sm">Next</Button>

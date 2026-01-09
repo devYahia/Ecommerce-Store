@@ -12,7 +12,7 @@ export default function WarrantyPage() {
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-12">
-          <ShieldCheck className="h-16 w-16 text-orange-500 mx-auto mb-4" />
+          <ShieldCheck className="h-16 w-16 text-orange-700 mx-auto mb-4" />
           <h1 className="text-4xl font-bold text-gray-900 mb-4">{siteConfig.name} Shield</h1>
           <p className="text-xl text-gray-600">
             Comprehensive warranty protection for your 3D printing equipment
@@ -31,7 +31,7 @@ export default function WarrantyPage() {
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-orange-50 rounded-lg p-6">
-              <Clock className="h-10 w-10 text-orange-500 mb-4" />
+              <Clock className="h-10 w-10 text-orange-700 mb-4" />
               <h3 className="text-xl font-semibold text-gray-800 mb-2">1 Year Coverage</h3>
               <p className="text-gray-600">
                 All 3D printers come with a minimum 1-year manufacturer warranty, covering 
@@ -39,7 +39,7 @@ export default function WarrantyPage() {
               </p>
             </div>
             <div className="bg-orange-50 rounded-lg p-6">
-              <Wrench className="h-10 w-10 text-orange-500 mb-4" />
+              <Wrench className="h-10 w-10 text-orange-700 mb-4" />
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Expert Repairs</h3>
               <p className="text-gray-600">
                 Our certified technicians handle all warranty repairs using genuine parts 
@@ -85,16 +85,16 @@ export default function WarrantyPage() {
 
           <section className="bg-gray-50 rounded-lg p-6">
             <div className="flex items-center gap-4">
-              <Phone className="h-10 w-10 text-orange-500 flex-shrink-0" />
+              <Phone className="h-10 w-10 text-orange-700 flex-shrink-0" />
               <div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-1">Need Help?</h3>
                 <p className="text-gray-600">
                   Contact our warranty support team at{" "}
-                  <a href={`mailto:${siteConfig.contact.email}`} className="text-orange-500 hover:underline">
+                  <a href={`mailto:${siteConfig.contact.email}`} className="text-orange-700 hover:underline">
                     {siteConfig.contact.email}
                   </a>{" "}
                   or call{" "}
-                  <a href={`tel:${siteConfig.contact.phone}`} className="text-orange-500 hover:underline">
+                  <a href={`tel:${siteConfig.contact.phone}`} className="text-orange-700 hover:underline">
                     {siteConfig.contact.phone}
                   </a>
                 </p>

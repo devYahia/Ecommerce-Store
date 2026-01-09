@@ -34,7 +34,7 @@ export default function BrandsPage() {
           <p className="text-gray-500">Manage product brands and manufacturers</p>
         </div>
         <Button
-          className="bg-orange-500 hover:bg-orange-600 gap-2"
+          className="bg-orange-700 hover:bg-orange-800 gap-2"
           onClick={() => {
             setEditingBrand(null);
             setShowModal(true);
@@ -87,7 +87,7 @@ export default function BrandsPage() {
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                        <Tags className="h-5 w-5 text-orange-500" />
+                        <Tags className="h-5 w-5 text-orange-700" />
                       </div>
                       <span className="font-medium text-gray-900">{brand.name}</span>
                     </div>
@@ -112,7 +112,7 @@ export default function BrandsPage() {
                           setEditingBrand(brand);
                           setShowModal(true);
                         }}
-                        className="p-2 text-gray-400 hover:text-orange-500 hover:bg-orange-50 rounded-lg"
+                        className="p-2 text-gray-400 hover:text-orange-700 hover:bg-orange-50 rounded-lg"
                       >
                         <Edit className="h-4 w-4" />
                       </button>
@@ -166,7 +166,7 @@ export default function BrandsPage() {
                 </label>
                 <select
                   defaultValue={editingBrand?.status || "Active"}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
                 >
                   <option value="Active">Active</option>
                   <option value="Inactive">Inactive</option>
@@ -178,7 +178,7 @@ export default function BrandsPage() {
                 Cancel
               </Button>
               <Button
-                className="bg-orange-500 hover:bg-orange-600"
+                className="bg-orange-700 hover:bg-orange-800"
                 onClick={() => setShowModal(false)}
               >
                 {editingBrand ? "Save Changes" : "Add Brand"}

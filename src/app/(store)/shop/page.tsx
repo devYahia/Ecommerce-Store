@@ -112,7 +112,7 @@ export default function ShopPage() {
                 key={i}
                 className={`px-4 py-2 rounded ${
                   page === 1
-                    ? "bg-orange-500 text-white"
+                    ? "bg-orange-700 text-white"
                     : "bg-white border hover:bg-gray-50"
                 }`}
               >

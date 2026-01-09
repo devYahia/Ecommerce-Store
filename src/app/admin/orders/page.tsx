@@ -74,7 +74,7 @@ export default function OrdersPage() {
             className={`p-4 rounded-xl text-left transition-all ${
               (statusFilter === "all" && stat.label === "All Orders") ||
               statusFilter === stat.label
-                ? "ring-2 ring-orange-500"
+                ? "ring-2 ring-orange-700"
                 : ""
             } ${stat.color}`}
           >
@@ -99,7 +99,7 @@ export default function OrdersPage() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
           >
             <option value="all">All Status</option>
             <option value="Pending">Pending</option>
@@ -146,7 +146,7 @@ export default function OrdersPage() {
             <tbody className="divide-y divide-gray-100">
               {filteredOrders.map((order) => (
                 <tr key={order.id} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 text-sm font-medium text-orange-500">
+                  <td className="px-6 py-4 text-sm font-medium text-orange-700">
                     {order.id}
                   </td>
                   <td className="px-6 py-4">
@@ -173,7 +173,7 @@ export default function OrdersPage() {
                   <td className="px-6 py-4">
                     <div className="flex items-center justify-end gap-2">
                       <Link href={`/admin/orders/${order.id}`}>
-                        <button className="p-2 text-gray-400 hover:text-orange-500 hover:bg-orange-50 rounded-lg">
+                        <button className="p-2 text-gray-400 hover:text-orange-700 hover:bg-orange-50 rounded-lg">
                           <Eye className="h-4 w-4" />
                         </button>
                       </Link>
@@ -194,7 +194,7 @@ export default function OrdersPage() {
             <Button variant="outline" size="sm" disabled>
               <ChevronLeft className="h-4 w-4" />
             </Button>
-            <Button variant="outline" size="sm" className="bg-orange-500 text-white hover:bg-orange-600">
+            <Button variant="outline" size="sm" className="bg-orange-700 text-white hover:bg-orange-800">
               1
             </Button>
             <Button variant="outline" size="sm">

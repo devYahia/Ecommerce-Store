@@ -123,7 +123,7 @@ export default function NewProductPage() {
                     onChange={handleChange}
                     rows={4}
                     placeholder="Enter product description"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
                   />
                 </div>
               </div>
@@ -229,7 +229,7 @@ export default function NewProductPage() {
                 name="status"
                 value={formData.status}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
               >
                 <option value="active">Active</option>
                 <option value="draft">Draft</option>
@@ -249,7 +249,7 @@ export default function NewProductPage() {
                     name="category"
                     value={formData.category}
                     onChange={handleChange}
-                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 ${
+                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700 ${
                       errors.category ? "border-red-500" : "border-gray-300"
                     }`}
                   >
@@ -274,7 +274,7 @@ export default function NewProductPage() {
                     name="brand"
                     value={formData.brand}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-700 focus:border-orange-700"
                   >
                     <option value="">Select brand</option>
                     <option value="creality">Creality</option>
@@ -292,7 +292,7 @@ export default function NewProductPage() {
             <div className="flex flex-col gap-2">
               <Button
                 type="submit"
-                className="w-full bg-orange-500 hover:bg-orange-600"
+                className="w-full bg-orange-700 hover:bg-orange-800"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Creating..." : "Create Product"}

@@ -102,7 +102,7 @@ export default function AdminDashboard() {
         </div>
         
         <div className="flex items-center gap-2">
-          <Button asChild size="sm" className="bg-orange-500 hover:bg-orange-600 shadow-sm h-8 text-xs">
+          <Button asChild size="sm" className="bg-orange-700 hover:bg-orange-800 shadow-sm h-8 text-xs">
             <Link href="/admin/products/new" className="flex items-center gap-1.5">
               <PlusIcon className="h-3.5 w-3.5" />
               <span className="hidden sm:inline">Add Product</span>
@@ -230,7 +230,7 @@ export default function AdminDashboard() {
           </div>
           <p className="text-2xl font-bold text-gray-900">3.2%</p>
           <div className="mt-2 h-1.5 bg-gray-100 rounded-full overflow-hidden">
-            <div className="h-full w-[32%] bg-gradient-to-r from-orange-500 to-amber-500 rounded-full" />
+            <div className="h-full w-[32%] bg-gradient-to-r from-orange-700 to-amber-500 rounded-full" />
           </div>
         </div>
 
@@ -265,7 +265,7 @@ export default function AdminDashboard() {
         <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
           <div className="px-4 py-3 border-b border-gray-100 flex items-center justify-between">
             <h2 className="text-sm font-semibold text-gray-900">Recent Orders</h2>
-            <Link href="/admin/orders" className="text-orange-500 text-xs font-medium hover:text-orange-600 transition-colors">
+            <Link href="/admin/orders" className="text-orange-700 text-xs font-medium hover:text-orange-800 transition-colors">
               View All
             </Link>
           </div>
@@ -304,7 +304,7 @@ export default function AdminDashboard() {
         <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
           <div className="px-4 py-3 border-b border-gray-100 flex items-center justify-between">
             <h2 className="text-sm font-semibold text-gray-900">Top Products</h2>
-            <Link href="/admin/products" className="text-orange-500 text-xs font-medium hover:text-orange-600 transition-colors">
+            <Link href="/admin/products" className="text-orange-700 text-xs font-medium hover:text-orange-800 transition-colors">
               View All
             </Link>
           </div>
@@ -351,7 +351,7 @@ export default function AdminDashboard() {
               </div>
               <h2 className="text-sm font-semibold text-gray-900">Low Stock Alert</h2>
             </div>
-            <Link href="/admin/products?filter=low_stock" className="text-orange-500 text-xs font-medium hover:text-orange-600 transition-colors">
+            <Link href="/admin/products?filter=low_stock" className="text-orange-700 text-xs font-medium hover:text-orange-800 transition-colors">
               View All
             </Link>
           </div>

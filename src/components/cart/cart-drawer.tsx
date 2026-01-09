@@ -105,7 +105,7 @@ export function CartDrawer() {
               <Button variant="outline" onClick={closeCart} asChild>
                 <Link href="/cart">View Cart</Link>
               </Button>
-              <Button className="bg-orange-500 hover:bg-orange-600" onClick={closeCart} asChild>
+              <Button className="bg-orange-700 hover:bg-orange-800" onClick={closeCart} asChild>
                 <Link href="/checkout">Checkout</Link>
               </Button>
             </div>
@@ -138,7 +138,7 @@ function CartItemCard({
         {item.options && Object.entries(item.options).map(([key, value]) => (
           <p key={key} className="text-sm text-gray-500">{key}: {value}</p>
         ))}
-        <p className="font-semibold text-orange-500 mt-1">
+        <p className="font-semibold text-orange-700 mt-1">
           EGP {item.price.toLocaleString()}
         </p>
 

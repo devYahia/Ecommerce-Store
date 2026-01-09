@@ -13,7 +13,7 @@ export default function AboutPage() {
       {/* Hero */}
       <div className="text-center mb-16">
         <h1 className="text-4xl font-bold mb-4">
-          About <span className="text-orange-500">Lancer</span>3D
+          About <span className="text-orange-700">Lancer</span>3D
         </h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
           Egypt&apos;s premier destination for 3D printing technology, serving makers, 
@@ -44,7 +44,7 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
-        <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-8 text-white">
+        <div className="bg-gradient-to-br from-orange-700 to-orange-800 rounded-2xl p-8 text-white">
           <div className="grid grid-cols-2 gap-6">
             <div className="text-center">
               <div className="text-4xl font-bold mb-2">700+</div>
@@ -87,7 +87,7 @@ export default function AboutPage() {
               title: "Innovation",
               description: "We stay at the forefront of 3D printing technology, bringing you the latest and most advanced products.",
               icon: Lightbulb,
-              color: "bg-orange-500",
+              color: "bg-orange-700",
             },
           ].map((value) => (
             <div key={value.title} className="text-center p-6">
@@ -113,7 +113,7 @@ export default function AboutPage() {
                 href={address.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-orange-500 font-medium hover:underline"
+                className="text-orange-700 font-medium hover:underline"
               >
                 Get Directions →
               </a>

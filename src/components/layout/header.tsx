@@ -71,10 +71,10 @@ export function Header() {
               alt="Omega3D"
               width={36}
               height={36}
-              className="text-orange-500"
+              className="text-orange-700"
               style={{ filter: "invert(60%) sepia(98%) saturate(1000%) hue-rotate(360deg)" }}
             />
-            <span className="text-2xl font-bold text-orange-500">
+            <span className="text-2xl font-bold text-orange-700">
               Omega<span className="text-gray-900">3D</span>
             </span>
           </Link>
@@ -85,12 +85,12 @@ export function Header() {
               <Input
                 type="search"
                 placeholder="Search for products..."
-                className="w-full pl-4 pr-12 h-10 border-gray-300 focus:border-orange-500"
+                className="w-full pl-4 pr-12 h-10 border-gray-300 focus:border-orange-700"
               />
               <Button
                 size="icon"
                 variant="ghost"
-                className="absolute right-0 top-0 h-full px-3 hover:bg-orange-50"
+                className="absolute right-0 top-0 h-full px-3 hover:bg-orange-100"
               >
                 <Search className="h-5 w-5 text-gray-500" />
               </Button>
@@ -108,16 +108,16 @@ export function Header() {
             </button>
 
             {/* Account */}
-            <Link href="/account" className="hidden sm:flex items-center gap-2 text-sm hover:text-orange-500">
+            <Link href="/account" className="hidden sm:flex items-center gap-2 text-sm hover:text-orange-700">
               <User className="h-5 w-5" />
               <span className="hidden lg:inline">Account</span>
             </Link>
 
             {/* Wishlist */}
-            <Link href="/wishlist" className="relative p-2 hover:text-orange-500">
+            <Link href="/wishlist" className="relative p-2 hover:text-orange-700">
               <Heart className="h-5 w-5" />
               {wishlistCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 bg-orange-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                   {wishlistCount}
                 </span>
               )}
@@ -126,11 +126,11 @@ export function Header() {
             {/* Cart */}
             <button
               onClick={openCart}
-              className="relative p-2 hover:text-orange-500"
+              className="relative p-2 hover:text-orange-700"
             >
               <ShoppingCart className="h-5 w-5" />
               {cartItemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 bg-orange-700 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                   {cartItemCount}
                 </span>
               )}
@@ -165,7 +165,7 @@ export function Header() {
           <div className="flex items-center justify-between">
             {/* Categories Dropdown */}
             <div className="relative group">
-              <button className="flex items-center gap-2 px-4 py-3 bg-orange-500 text-white font-medium hover:bg-orange-600">
+              <button className="flex items-center gap-2 px-4 py-3 bg-orange-700 text-white font-medium hover:bg-orange-800">
                 <Menu className="h-5 w-5" />
                 <span>Browse Categories</span>
                 <ChevronDown className="h-4 w-4" />
@@ -178,7 +178,7 @@ export function Header() {
                     <li key={category.slug}>
                       <Link
                         href={`/category/${category.slug}`}
-                        className="block px-4 py-2 hover:bg-orange-50 hover:text-orange-500"
+                        className="block px-4 py-2 hover:bg-orange-100 hover:text-orange-700"
                       >
                         {category.name}
                       </Link>
@@ -194,7 +194,7 @@ export function Header() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="py-3 inline-block text-gray-700 hover:text-orange-500 font-medium"
+                    className="py-3 inline-block text-gray-700 hover:text-orange-700 font-medium"
                   >
                     {item.title}
                   </Link>
@@ -204,7 +204,7 @@ export function Header() {
 
             {/* Promo Banner */}
             <div className="text-sm">
-              <Link href="/shop" className="text-orange-500 font-semibold hover:underline inline-flex items-center gap-1">
+              <Link href="/shop" className="text-orange-700 font-semibold hover:underline inline-flex items-center gap-1">
                 <Truck className="h-4 w-4" />
                 <span>Free Shipping on All Printers!</span>
               </Link>
@@ -222,7 +222,7 @@ export function Header() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="block py-2 text-gray-700 hover:text-orange-500"
+                    className="block py-2 text-gray-700 hover:text-orange-700"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.title}
@@ -236,7 +236,7 @@ export function Header() {
                     <li key={category.slug}>
                       <Link
                         href={`/category/${category.slug}`}
-                        className="block py-1.5 text-gray-600 hover:text-orange-500"
+                        className="block py-1.5 text-gray-600 hover:text-orange-700"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         {category.name}

@@ -72,7 +72,7 @@ export default function AdminAccountPage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <User className="h-5 w-5 text-orange-500" />
+            <User className="h-5 w-5 text-orange-700" />
             Profile Information
           </CardTitle>
           <CardDescription>Update your account profile details</CardDescription>
@@ -105,7 +105,7 @@ export default function AdminAccountPage() {
               </div>
             </div>
             <div className="flex justify-end">
-              <Button type="submit" className="bg-orange-500 hover:bg-orange-600">
+              <Button type="submit" className="bg-orange-700 hover:bg-orange-800">
                 <Save className="h-4 w-4 mr-2" />
                 Save Changes
               </Button>
@@ -118,7 +118,7 @@ export default function AdminAccountPage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Lock className="h-5 w-5 text-orange-500" />
+            <Lock className="h-5 w-5 text-orange-700" />
             Change Password
           </CardTitle>
           <CardDescription>Update your password to keep your account secure</CardDescription>
@@ -164,7 +164,7 @@ export default function AdminAccountPage() {
               </div>
             </div>
             <div className="flex justify-end">
-              <Button type="submit" className="bg-orange-500 hover:bg-orange-600">
+              <Button type="submit" className="bg-orange-700 hover:bg-orange-800">
                 <Lock className="h-4 w-4 mr-2" />
                 Update Password
               </Button>
@@ -177,7 +177,7 @@ export default function AdminAccountPage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Shield className="h-5 w-5 text-orange-500" />
+            <Shield className="h-5 w-5 text-orange-700" />
             Security Settings
           </CardTitle>
           <CardDescription>Manage your account security preferences</CardDescription>
@@ -194,7 +194,7 @@ export default function AdminAccountPage() {
               </div>
               <label className="relative inline-flex items-center cursor-pointer">
                 <input type="checkbox" defaultChecked className="sr-only peer" />
-                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-500"></div>
+                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-orange-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-700"></div>
               </label>
             </div>
             <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
