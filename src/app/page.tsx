@@ -10,7 +10,8 @@ import {
   Star,
   Truck,
   ShieldCheck,
-  Headphones
+  Headphones,
+  BookOpen
 } from "lucide-react";
 
 export default function HomePage() {
@@ -120,19 +121,22 @@ export default function HomePage() {
                 title: "3D Printing Service",
                 description: "Upload your design and we'll print it for you. Professional quality, fast turnaround.",
                 href: "/services/printing",
-                icon: "🖨️",
+                icon: Printer,
+                color: "bg-blue-500",
               },
               {
                 title: "Printer Maintenance",
                 description: "Expert repair and maintenance services for all major 3D printer brands.",
                 href: "/services/maintenance",
-                icon: "🔧",
+                icon: Wrench,
+                color: "bg-orange-500",
               },
               {
                 title: "Training & Support",
                 description: "Learn how to get the most out of your 3D printer with our training programs.",
                 href: "/services/training",
-                icon: "📚",
+                icon: BookOpen,
+                color: "bg-green-500",
               },
             ].map((service) => (
               <Link
@@ -140,7 +144,9 @@ export default function HomePage() {
                 href={service.href}
                 className="bg-gray-800 rounded-xl p-8 hover:bg-gray-750 transition-colors group"
               >
-                <span className="text-4xl mb-4 block">{service.icon}</span>
+                <div className={`${service.color} w-14 h-14 rounded-xl flex items-center justify-center mb-4`}>
+                  <service.icon className="h-7 w-7 text-white" />
+                </div>
                 <h3 className="text-xl font-semibold mb-3 group-hover:text-orange-500 transition-colors">
                   {service.title}
                 </h3>

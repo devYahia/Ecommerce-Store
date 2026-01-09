@@ -11,7 +11,8 @@ import {
   X,
   MapPin,
   Phone,
-  ChevronDown
+  ChevronDown,
+  Truck
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -194,8 +195,9 @@ export function Header() {
 
             {/* Promo Banner */}
             <div className="text-sm">
-              <Link href="/shop" className="text-orange-500 font-semibold hover:underline">
-                🚚 Free Shipping on All Printers!
+              <Link href="/shop" className="text-orange-500 font-semibold hover:underline inline-flex items-center gap-1">
+                <Truck className="h-4 w-4" />
+                <span>Free Shipping on All Printers!</span>
               </Link>
             </div>
           </div>

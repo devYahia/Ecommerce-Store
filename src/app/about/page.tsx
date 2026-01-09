@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Star, Target, Lightbulb } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -73,21 +74,26 @@ export default function AboutPage() {
             {
               title: "Quality First",
               description: "We only stock genuine products from authorized distributors, ensuring you get the real deal every time.",
-              icon: "⭐",
+              icon: Star,
+              color: "bg-yellow-500",
             },
             {
               title: "Customer Success",
               description: "Your success is our success. We provide ongoing support and resources to help you achieve your 3D printing goals.",
-              icon: "🎯",
+              icon: Target,
+              color: "bg-red-500",
             },
             {
               title: "Innovation",
               description: "We stay at the forefront of 3D printing technology, bringing you the latest and most advanced products.",
-              icon: "💡",
+              icon: Lightbulb,
+              color: "bg-orange-500",
             },
           ].map((value) => (
             <div key={value.title} className="text-center p-6">
-              <div className="text-4xl mb-4">{value.icon}</div>
+              <div className={`${value.color} w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4`}>
+                <value.icon className="h-8 w-8 text-white" />
+              </div>
               <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
               <p className="text-gray-600">{value.description}</p>
             </div>
