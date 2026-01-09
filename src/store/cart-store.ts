@@ -94,7 +94,7 @@ export const useCartStore = create<CartStore>()(
       },
     }),
     {
-      name: "lancer3d-cart",
+      name: "omega3d-cart",
     }
   )
 );

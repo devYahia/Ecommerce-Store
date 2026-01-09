@@ -1,5 +1,5 @@
-// Prisma Schema for Lancer3D E-commerce Platform
-// Based on analysis of lancer3d.com
+// Prisma Schema for Omega3D E-commerce Platform
+// Based on analysis of omega3d.com
 
 generator client {
   provider = "prisma-client-js"

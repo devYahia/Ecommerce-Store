@@ -66,7 +66,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <span className="text-2xl font-bold text-orange-500">
-              Lancer<span className="text-gray-900">3D</span>
+              Omega<span className="text-gray-900">3D</span>
             </span>
           </Link>
 

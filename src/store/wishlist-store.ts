@@ -62,7 +62,7 @@ export const useWishlistStore = create<WishlistStore>()(
       getItemCount: () => get().items.length,
     }),
     {
-      name: "lancer3d-wishlist",
+      name: "omega3d-wishlist",
     }
   )
 );

@@ -1,4 +1,4 @@
-# Lancer3D E-commerce Store
+# Omega3D E-commerce Store
 
 A modern e-commerce platform for 3D printers, filaments, and accessories built with Next.js 14, Prisma, and PostgreSQL.
 
@@ -161,4 +161,4 @@ This project is private and proprietary.
 
 ---
 
-Built with ❤️ by [Lancer3D](https://lancer3d.com)
+Built with care by [Omega3D](https://omega3d.com)

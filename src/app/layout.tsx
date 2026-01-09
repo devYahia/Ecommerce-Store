@@ -29,8 +29,8 @@ export const metadata: Metadata = {
     "Filament",
     "3D Printer Parts",
   ],
-  authors: [{ name: "Lancer3D" }],
-  creator: "Lancer3D",
+  authors: [{ name: "Omega3D" }],
+  creator: "Omega3D",
   openGraph: {
     type: "website",
     locale: "en_EG",

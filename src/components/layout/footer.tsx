@@ -20,7 +20,7 @@ export function Footer() {
           {/* Contact Info */}
           <div>
             <h3 className="text-xl font-bold text-white mb-4">
-              <span className="text-orange-500">Lancer</span>3D
+              <span className="text-orange-500">Omega</span>3D
             </h3>
             <ul className="space-y-3">
               {siteConfig.contact.addresses.map((address, index) => (
@@ -148,7 +148,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/warranty" className="hover:text-orange-500">
-                  Lancer3D Shield (Warranty)
+                  Omega3D Shield (Warranty)
                 </Link>
               </li>
               <li>

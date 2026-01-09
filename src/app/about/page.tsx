@@ -4,7 +4,7 @@ import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Learn about Lancer3D - Egypt's leading 3D printing store and service provider",
+  description: "Learn about Omega3D - Egypt's leading 3D printing store and service provider",
 };
 
 export default function AboutPage() {
@@ -27,7 +27,7 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold mb-6">Our Story</h2>
           <div className="space-y-4 text-gray-600">
             <p>
-              Lancer3D was founded with a simple mission: to make 3D printing 
+              Omega3D was founded with a simple mission: to make 3D printing 
               accessible to everyone in Egypt. We started as a small team of 
               enthusiasts who saw the transformative potential of additive manufacturing.
             </p>

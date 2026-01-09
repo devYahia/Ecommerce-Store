@@ -1,12 +1,12 @@
 export const siteConfig = {
-  name: "Lancer3D",
+  name: "Omega3D",
   description: "Egypt's Premier 3D Printer Store - FDM & Resin Printers, Filaments, Parts & Services",
-  url: process.env.NEXT_PUBLIC_APP_URL || "https://lancer3d.com",
+  url: process.env.NEXT_PUBLIC_APP_URL || "https://omega3d.com",
   ogImage: "/og-image.jpg",
   
   // Contact Information
   contact: {
-    email: "info@lancer3d.com",
+    email: "info@omega3d.com",
     phone: "+20 1014292919",
     whatsapp: "201014292919",
     addresses: [
@@ -25,12 +25,12 @@ export const siteConfig = {
   
   // Social Links
   social: {
-    facebook: "https://www.facebook.com/Lancer3d.eg",
-    instagram: "https://www.instagram.com/lancer3d_printer/",
-    twitter: "https://x.com/Lancer3DEG",
+    facebook: "https://www.facebook.com/Omega3d.eg",
+    instagram: "https://www.instagram.com/omega3d_printer/",
+    twitter: "https://x.com/Omega3DEG",
     youtube: "https://www.youtube.com/channel/UChhRKmTEEkHimR3o_tqs-zA",
-    linkedin: "https://www.linkedin.com/company/lancer3d/",
-    tiktok: "https://www.tiktok.com/@lancer.3d",
+    linkedin: "https://www.linkedin.com/company/omega3d/",
+    tiktok: "https://www.tiktok.com/@omega.3d",
     telegram: "https://t.me/joinchat/fDiSwehaKuZkOTFk",
   },
   

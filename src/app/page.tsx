@@ -85,23 +85,44 @@ export default function HomePage() {
       </section>
 
       {/* Featured Brands */}
-      <section className="py-16">
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Top Brands We Carry
-          </h2>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center">
-            {siteConfig.brands.map((brand) => (
-              <Link
-                key={brand.slug}
-                href={`/brand/${brand.slug}`}
-                className="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:bg-orange-50 transition-colors group"
-              >
-                <span className="text-xl font-bold text-gray-400 group-hover:text-orange-500 transition-colors">
-                  {brand.name}
-                </span>
-              </Link>
-            ))}
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Authorized Partner of <span className="text-orange-500">Top Brands</span>
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">
+              We bring you the world&apos;s leading 3D printing brands with official warranty and support
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+            {siteConfig.brands.map((brand, index) => {
+              const colors = [
+                "from-blue-500 to-blue-600",
+                "from-green-500 to-emerald-600", 
+                "from-purple-500 to-violet-600",
+                "from-orange-500 to-amber-600",
+                "from-cyan-500 to-teal-600",
+                "from-rose-500 to-pink-600",
+              ];
+              return (
+                <Link
+                  key={brand.slug}
+                  href={`/brand/${brand.slug}`}
+                  className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${colors[index % colors.length]} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                  <div className="relative z-10 flex flex-col items-center justify-center h-full min-h-[100px]">
+                    <span className="text-xl md:text-2xl font-bold text-gray-700 group-hover:text-white transition-colors duration-300">
+                      {brand.name}
+                    </span>
+                    <span className="text-xs text-gray-400 mt-2 group-hover:text-white/80 transition-colors duration-300">
+                      Official Partner
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -164,7 +185,7 @@ export default function HomePage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Why Choose Lancer3D?
+            Why Choose Omega3D?
           </h2>
           <div className="grid md:grid-cols-4 gap-8">
             {[
@@ -176,7 +197,7 @@ export default function HomePage() {
               {
                 icon: ShieldCheck,
                 title: "Warranty Protection",
-                description: "Lancer3D Shield warranty on all products",
+                description: "Omega3D Shield warranty on all products",
               },
               {
                 icon: Headphones,
@@ -208,7 +229,7 @@ export default function HomePage() {
             Ready to Start 3D Printing?
           </h2>
           <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of makers, hobbyists, and professionals who trust Lancer3D 
+            Join thousands of makers, hobbyists, and professionals who trust Omega3D 
             for their 3D printing needs.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

@@ -6,7 +6,7 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: "Get in touch with Lancer3D - We're here to help with your 3D printing needs",
+  description: "Get in touch with Omega3D - We're here to help with your 3D printing needs",
 };
 
 export default function ContactPage() {
