@@ -1,0 +1,610 @@
+// Prisma Schema for Lancer3D E-commerce Platform
+// Based on analysis of lancer3d.com
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ============================================
+// USER & AUTHENTICATION
+// ============================================
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  role          UserRole  @default(CUSTOMER)
+  phone         String?
+  
+  // Relations
+  accounts      Account[]
+  sessions      Session[]
+  addresses     Address[]
+  orders        Order[]
+  reviews       Review[]
+  wishlist      WishlistItem[]
+  cart          CartItem[]
+  rewardPoints  RewardPoints?
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+enum UserRole {
+  CUSTOMER
+  ADMIN
+  STAFF
+}
+
+model Address {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  firstName   String
+  lastName    String
+  company     String?
+  address1    String
+  address2    String?
+  city        String
+  state       String?
+  postalCode  String?
+  country     String   @default("Egypt")
+  phone       String?
+  isDefault   Boolean  @default(false)
+  type        AddressType @default(SHIPPING)
+  
+  orders      Order[]
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum AddressType {
+  SHIPPING
+  BILLING
+}
+
+// ============================================
+// PRODUCTS & CATALOG
+// ============================================
+
+model Category {
+  id          String     @id @default(cuid())
+  name        String
+  slug        String     @unique
+  description String?    @db.Text
+  image       String?
+  parentId    String?
+  parent      Category?  @relation("CategoryToCategory", fields: [parentId], references: [id])
+  children    Category[] @relation("CategoryToCategory")
+  
+  products    ProductCategory[]
+  
+  isActive    Boolean    @default(true)
+  sortOrder   Int        @default(0)
+  
+  // SEO
+  metaTitle       String?
+  metaDescription String? @db.Text
+  
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model Brand {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?   @db.Text
+  logo        String?
+  website     String?
+  
+  products    Product[]
+  
+  isActive    Boolean   @default(true)
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Product {
+  id              String   @id @default(cuid())
+  name            String
+  slug            String   @unique
+  description     String?  @db.Text
+  shortDescription String? @db.Text
+  
+  // Pricing
+  price           Decimal  @db.Decimal(10, 2)
+  compareAtPrice  Decimal? @db.Decimal(10, 2)
+  costPrice       Decimal? @db.Decimal(10, 2)
+  
+  // Inventory
+  sku             String?  @unique
+  barcode         String?
+  quantity        Int      @default(0)
+  lowStockThreshold Int    @default(5)
+  trackInventory  Boolean  @default(true)
+  
+  // Product Type
+  type            ProductType @default(SIMPLE)
+  
+  // Shipping
+  weight          Decimal? @db.Decimal(10, 3)
+  length          Decimal? @db.Decimal(10, 2)
+  width           Decimal? @db.Decimal(10, 2)
+  height          Decimal? @db.Decimal(10, 2)
+  
+  // Status
+  status          ProductStatus @default(DRAFT)
+  isFeatured      Boolean  @default(false)
+  isNew           Boolean  @default(false)
+  
+  // Relations
+  brandId         String?
+  brand           Brand?   @relation(fields: [brandId], references: [id])
+  
+  categories      ProductCategory[]
+  images          ProductImage[]
+  variants        ProductVariant[]
+  attributes      ProductAttribute[]
+  reviews         Review[]
+  wishlistItems   WishlistItem[]
+  cartItems       CartItem[]
+  orderItems      OrderItem[]
+  
+  // SEO
+  metaTitle       String?
+  metaDescription String? @db.Text
+  
+  // Rewards
+  rewardPoints    Int      @default(0)
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@index([slug])
+  @@index([status])
+  @@index([brandId])
+}
+
+model ProductCategory {
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  
+  @@id([productId, categoryId])
+}
+
+model ProductImage {
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  url       String
+  alt       String?
+  sortOrder Int      @default(0)
+  
+  createdAt DateTime @default(now())
+}
+
+model ProductVariant {
+  id              String   @id @default(cuid())
+  productId       String
+  product         Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  name            String   // e.g., "Black / 1kg"
+  sku             String?  @unique
+  price           Decimal  @db.Decimal(10, 2)
+  compareAtPrice  Decimal? @db.Decimal(10, 2)
+  quantity        Int      @default(0)
+  
+  // Variant options (JSON for flexibility)
+  options         Json     // e.g., {"color": "Black", "size": "1kg"}
+  
+  image           String?
+  
+  cartItems       CartItem[]
+  orderItems      OrderItem[]
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model ProductAttribute {
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  name      String   // e.g., "Color", "Size", "Material"
+  value     String   // e.g., "Black", "1kg", "PLA+"
+  
+  @@unique([productId, name, value])
+}
+
+enum ProductType {
+  SIMPLE
+  VARIABLE
+  DIGITAL
+}
+
+enum ProductStatus {
+  DRAFT
+  ACTIVE
+  ARCHIVED
+  OUT_OF_STOCK
+}
+
+// ============================================
+// ORDERS & CHECKOUT
+// ============================================
+
+model Order {
+  id              String      @id @default(cuid())
+  orderNumber     String      @unique
+  
+  // Customer
+  userId          String?
+  user            User?       @relation(fields: [userId], references: [id])
+  email           String
+  phone           String?
+  
+  // Addresses
+  shippingAddressId String?
+  shippingAddress   Address?  @relation(fields: [shippingAddressId], references: [id])
+  billingInfo       Json?     // Store billing address as JSON
+  
+  // Order Details
+  items           OrderItem[]
+  
+  // Pricing
+  subtotal        Decimal     @db.Decimal(10, 2)
+  shippingCost    Decimal     @db.Decimal(10, 2) @default(0)
+  taxAmount       Decimal     @db.Decimal(10, 2) @default(0)
+  discountAmount  Decimal     @db.Decimal(10, 2) @default(0)
+  total           Decimal     @db.Decimal(10, 2)
+  
+  // Status
+  status          OrderStatus @default(PENDING)
+  paymentStatus   PaymentStatus @default(PENDING)
+  
+  // Payment
+  paymentMethod   String?
+  paymentId       String?     // External payment reference
+  
+  // Shipping
+  shippingMethod  String?
+  trackingNumber  String?
+  
+  // Notes
+  customerNote    String?     @db.Text
+  adminNote       String?     @db.Text
+  
+  // Rewards
+  pointsEarned    Int         @default(0)
+  pointsUsed      Int         @default(0)
+  
+  // Timestamps
+  paidAt          DateTime?
+  shippedAt       DateTime?
+  deliveredAt     DateTime?
+  cancelledAt     DateTime?
+  
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  
+  @@index([orderNumber])
+  @@index([userId])
+  @@index([status])
+}
+
+model OrderItem {
+  id          String   @id @default(cuid())
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id])
+  variantId   String?
+  variant     ProductVariant? @relation(fields: [variantId], references: [id])
+  
+  name        String   // Snapshot of product name
+  sku         String?
+  price       Decimal  @db.Decimal(10, 2)
+  quantity    Int
+  total       Decimal  @db.Decimal(10, 2)
+  
+  // Options snapshot
+  options     Json?
+  
+  createdAt   DateTime @default(now())
+}
+
+enum OrderStatus {
+  PENDING
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+  PARTIALLY_REFUNDED
+}
+
+// ============================================
+// CART & WISHLIST
+// ============================================
+
+model CartItem {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  variantId   String?
+  variant     ProductVariant? @relation(fields: [variantId], references: [id])
+  
+  quantity    Int      @default(1)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@unique([userId, productId, variantId])
+}
+
+model WishlistItem {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  createdAt   DateTime @default(now())
+  
+  @@unique([userId, productId])
+}
+
+// ============================================
+// REVIEWS & RATINGS
+// ============================================
+
+model Review {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  rating      Int      // 1-5
+  title       String?
+  content     String?  @db.Text
+  
+  isVerified  Boolean  @default(false) // Verified purchase
+  isApproved  Boolean  @default(false)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@unique([userId, productId])
+}
+
+// ============================================
+// REWARDS & LOYALTY
+// ============================================
+
+model RewardPoints {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  balance     Int      @default(0)
+  totalEarned Int      @default(0)
+  totalSpent  Int      @default(0)
+  
+  transactions RewardTransaction[]
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model RewardTransaction {
+  id              String   @id @default(cuid())
+  rewardPointsId  String
+  rewardPoints    RewardPoints @relation(fields: [rewardPointsId], references: [id], onDelete: Cascade)
+  
+  type            RewardTransactionType
+  points          Int
+  description     String?
+  orderId         String?
+  
+  createdAt       DateTime @default(now())
+}
+
+enum RewardTransactionType {
+  EARNED
+  SPENT
+  EXPIRED
+  ADJUSTED
+}
+
+// ============================================
+// SERVICES (3D Printing, Maintenance)
+// ============================================
+
+model ServiceRequest {
+  id              String   @id @default(cuid())
+  requestNumber   String   @unique
+  
+  // Customer info
+  name            String
+  email           String
+  phone           String
+  
+  // Service type
+  serviceType     ServiceType
+  
+  // For 3D Printing
+  fileUrl         String?
+  material        String?
+  color           String?
+  quantity        Int?
+  notes           String?  @db.Text
+  
+  // For Maintenance
+  printerBrand    String?
+  printerModel    String?
+  issueDescription String? @db.Text
+  
+  // Status & Pricing
+  status          ServiceStatus @default(PENDING)
+  estimatedPrice  Decimal? @db.Decimal(10, 2)
+  finalPrice      Decimal? @db.Decimal(10, 2)
+  
+  // Admin
+  adminNotes      String?  @db.Text
+  assignedTo      String?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+enum ServiceType {
+  PRINTING_3D
+  MAINTENANCE
+  TRAINING
+}
+
+enum ServiceStatus {
+  PENDING
+  QUOTED
+  APPROVED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+// ============================================
+// CONTENT & CMS
+// ============================================
+
+model Page {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  content     String?  @db.Text
+  
+  // SEO
+  metaTitle       String?
+  metaDescription String? @db.Text
+  
+  isPublished Boolean  @default(false)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  excerpt     String?  @db.Text
+  content     String?  @db.Text
+  featuredImage String?
+  
+  authorName  String?
+  
+  // SEO
+  metaTitle       String?
+  metaDescription String? @db.Text
+  
+  isPublished Boolean  @default(false)
+  publishedAt DateTime?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ============================================
+// SETTINGS & CONFIGURATION
+// ============================================
+
+model Setting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value Json
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Banner {
+  id          String   @id @default(cuid())
+  title       String
+  subtitle    String?
+  image       String
+  link        String?
+  
+  position    String   @default("home_hero") // home_hero, home_category, etc.
+  sortOrder   Int      @default(0)
+  isActive    Boolean  @default(true)
+  
+  startDate   DateTime?
+  endDate     DateTime?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
