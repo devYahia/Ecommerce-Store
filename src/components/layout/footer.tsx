@@ -7,72 +7,13 @@ import {
   Linkedin,
   MapPin,
   Phone,
-  Mail,
-  Send,
-  Truck,
-  CreditCard,
-  Headphones,
-  ShieldCheck,
-  RotateCcw
+  Mail
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 export function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
-      {/* Features Bar */}
-      <div className="border-b border-gray-800">
-        <div className="container mx-auto px-4 py-6">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-12 h-12 bg-orange-500/20 rounded-full flex items-center justify-center">
-                <Truck className="h-6 w-6 text-orange-500" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-white">Fast Shipping</h4>
-                <p className="text-sm text-gray-400">Swift Delivery</p>
-              </div>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center">
-                <CreditCard className="h-6 w-6 text-blue-500" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-white">Online Payment</h4>
-                <p className="text-sm text-gray-400">Seamless Transactions</p>
-              </div>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center">
-                <Headphones className="h-6 w-6 text-green-500" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-white">24/7 Support</h4>
-                <p className="text-sm text-gray-400">Around the Clock</p>
-              </div>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center">
-                <ShieldCheck className="h-6 w-6 text-purple-500" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-white">100% Safe</h4>
-                <p className="text-sm text-gray-400">Your Trust, Our Priority</p>
-              </div>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <div className="w-12 h-12 bg-cyan-500/20 rounded-full flex items-center justify-center">
-                <RotateCcw className="h-6 w-6 text-cyan-500" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-white">Free Returns</h4>
-                <p className="text-sm text-gray-400">Hassle-Free Returns</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
