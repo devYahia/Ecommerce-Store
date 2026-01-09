@@ -3,9 +3,21 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Brand Colors */
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  /* ============================================
+     OMEGA3D BRAND COLORS
+     Primary: Orange (#f97316 / orange-500)
+     Secondary: Gray (#1f2937 / gray-800)
+     ============================================ */
+  
+  /* Brand Primary (Orange) */
+  --brand: oklch(0.702 0.195 41.116);
+  --brand-foreground: oklch(1 0 0);
+  --brand-light: oklch(0.95 0.04 41.116);
+  --brand-dark: oklch(0.553 0.195 38.402);
+  
+  /* shadcn/ui defaults - using brand orange as primary */
+  --primary: oklch(0.702 0.195 41.116);
+  --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
 
@@ -52,6 +64,13 @@
 }
 
 @theme inline {
+  /* Brand colors */
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-light: var(--brand-light);
+  --color-brand-dark: var(--brand-dark);
+  
+  /* shadcn/ui colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
