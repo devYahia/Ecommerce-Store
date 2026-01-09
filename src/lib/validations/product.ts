@@ -19,3 +19,4 @@ export const productUpdateSchema = productSchema.partial();
 export type ProductInput = z.infer<typeof productSchema>;
 export type ProductUpdateInput = z.infer<typeof productUpdateSchema>;
 
+

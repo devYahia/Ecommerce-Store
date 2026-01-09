@@ -41,3 +41,4 @@ export type RegisterInput = z.infer<typeof registerSchema>;
 export type UserUpdateInput = z.infer<typeof userUpdateSchema>;
 export type PasswordChangeInput = z.infer<typeof passwordChangeSchema>;
 
+
