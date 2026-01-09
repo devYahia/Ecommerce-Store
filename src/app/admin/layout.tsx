@@ -1,64 +1,65 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import {
-  LayoutDashboard,
-  Package,
-  ShoppingCart,
-  Users,
-  Settings,
-  FolderTree,
-  Tags,
-  FileText,
-  LogOut,
-  Menu,
-  X,
-  ChevronDown,
-} from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import {
+  DashboardIcon,
+  BoxIcon,
+  FolderIcon,
+  CartIcon,
+  UsersIcon,
+  TagIcon,
+  FileIcon,
+  SettingsIcon,
+  UserIcon,
+  LogoutIcon,
+  MenuIcon,
+  CloseIcon,
+} from "@/components/icons/solar-icons";
 
 const sidebarLinks = [
   {
     title: "Dashboard",
     href: "/admin",
-    icon: LayoutDashboard,
+    icon: DashboardIcon,
   },
   {
     title: "Products",
     href: "/admin/products",
-    icon: Package,
+    icon: BoxIcon,
   },
   {
     title: "Categories",
     href: "/admin/categories",
-    icon: FolderTree,
+    icon: FolderIcon,
   },
   {
     title: "Orders",
     href: "/admin/orders",
-    icon: ShoppingCart,
+    icon: CartIcon,
   },
   {
     title: "Users",
     href: "/admin/users",
-    icon: Users,
+    icon: UsersIcon,
   },
   {
     title: "Brands",
     href: "/admin/brands",
-    icon: Tags,
+    icon: TagIcon,
   },
   {
     title: "Pages",
     href: "/admin/pages",
-    icon: FileText,
+    icon: FileIcon,
   },
   {
     title: "Settings",
     href: "/admin/settings",
-    icon: Settings,
+    icon: SettingsIcon,
   },
 ];
 
@@ -71,11 +72,11 @@ export default function AdminLayout({
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-50">
       {/* Mobile Sidebar Overlay */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/50 lg:hidden"
+          className="fixed inset-0 z-40 bg-black/50 lg:hidden backdrop-blur-sm"
           onClick={() => setSidebarOpen(false)}
         />
       )}
@@ -83,30 +84,35 @@ export default function AdminLayout({
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 transform transition-transform duration-200 ease-in-out lg:translate-x-0",
+          "fixed inset-y-0 left-0 z-50 w-64 bg-gray-900 transform transition-transform duration-200 ease-in-out lg:translate-x-0 flex flex-col",
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
         {/* Logo */}
         <div className="flex items-center justify-between h-16 px-4 border-b border-gray-800">
-          <Link href="/admin" className="flex items-center gap-2">
+          <Link href="/admin" className="flex items-center gap-3">
+            <Image
+              src="/icons/logo.svg"
+              alt="Omega3D"
+              width={32}
+              height={32}
+              className="text-orange-500"
+              style={{ filter: "invert(60%) sepia(98%) saturate(1000%) hue-rotate(360deg)" }}
+            />
             <span className="text-xl font-bold text-orange-500">
               Omega<span className="text-white">3D</span>
             </span>
-            <span className="text-xs bg-orange-500 text-white px-2 py-0.5 rounded">
-              Admin
-            </span>
           </Link>
           <button
-            className="lg:hidden text-gray-400 hover:text-white"
+            className="lg:hidden text-gray-400 hover:text-white p-1"
             onClick={() => setSidebarOpen(false)}
           >
-            <X className="h-6 w-6" />
+            <CloseIcon className="h-5 w-5" />
           </button>
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 px-2 py-4 space-y-1 overflow-y-auto">
+        <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
           {sidebarLinks.map((link) => {
             const isActive = pathname === link.href || 
               (link.href !== "/admin" && pathname.startsWith(link.href));
@@ -115,11 +121,12 @@ export default function AdminLayout({
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => setSidebarOpen(false)}
                 className={cn(
-                  "flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
+                  "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150",
                   isActive
-                    ? "bg-orange-500 text-white"
-                    : "text-gray-300 hover:bg-gray-800 hover:text-white"
+                    ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
+                    : "text-gray-400 hover:bg-gray-800 hover:text-white"
                 )}
               >
                 <link.icon className="h-5 w-5" />
@@ -130,12 +137,25 @@ export default function AdminLayout({
         </nav>
 
         {/* Footer */}
-        <div className="p-4 border-t border-gray-800">
+        <div className="p-3 border-t border-gray-800 space-y-1">
+          <Link
+            href="/admin/account"
+            onClick={() => setSidebarOpen(false)}
+            className={cn(
+              "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150",
+              pathname === "/admin/account"
+                ? "bg-orange-500 text-white shadow-lg shadow-orange-500/20"
+                : "text-gray-400 hover:bg-gray-800 hover:text-white"
+            )}
+          >
+            <UserIcon className="h-5 w-5" />
+            Admin Account
+          </Link>
           <Link
             href="/"
-            className="flex items-center gap-3 px-3 py-2 text-gray-300 hover:bg-gray-800 hover:text-white rounded-lg text-sm font-medium transition-colors"
+            className="flex items-center gap-3 px-3 py-2.5 text-gray-400 hover:bg-gray-800 hover:text-white rounded-lg text-sm font-medium transition-all duration-150"
           >
-            <LogOut className="h-5 w-5" />
+            <LogoutIcon className="h-5 w-5" />
             Back to Store
           </Link>
         </div>
@@ -143,28 +163,21 @@ export default function AdminLayout({
 
       {/* Main Content */}
       <div className="lg:pl-64">
-        {/* Top Header */}
-        <header className="sticky top-0 z-30 flex items-center justify-between h-16 px-4 bg-white border-b shadow-sm">
+        {/* Mobile Header */}
+        <div className="sticky top-0 z-30 flex items-center justify-between h-14 px-4 bg-white border-b border-gray-200 lg:hidden">
           <button
-            className="lg:hidden text-gray-600 hover:text-gray-900"
+            className="text-gray-600 hover:text-gray-900 p-1"
             onClick={() => setSidebarOpen(true)}
           >
-            <Menu className="h-6 w-6" />
+            <MenuIcon className="h-6 w-6" />
           </button>
-          
-          <div className="flex items-center gap-4 ml-auto">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-medium">
-                A
-              </div>
-              <div className="hidden md:block">
-                <p className="text-sm font-medium text-gray-900">Admin</p>
-                <p className="text-xs text-gray-500">admin@omega3d.com</p>
-              </div>
-              <ChevronDown className="h-4 w-4 text-gray-400" />
-            </div>
-          </div>
-        </header>
+          <Link href="/admin" className="flex items-center gap-2">
+            <span className="text-lg font-bold text-orange-500">
+              Omega<span className="text-gray-900">3D</span>
+            </span>
+          </Link>
+          <div className="w-8" /> {/* Spacer for centering */}
+        </div>
 
         {/* Page Content */}
         <main className="p-4 md:p-6">{children}</main>
@@ -172,4 +185,3 @@ export default function AdminLayout({
     </div>
   );
 }
-

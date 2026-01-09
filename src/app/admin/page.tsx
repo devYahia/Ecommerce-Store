@@ -1,58 +1,48 @@
-import { 
-  Package, 
-  ShoppingCart, 
-  Users, 
-  DollarSign,
-  TrendingUp,
-  TrendingDown,
-  ArrowUpRight,
-  ArrowDownRight,
-} from "lucide-react";
 import Link from "next/link";
+import {
+  WalletIcon,
+  CartIcon,
+  BoxIcon,
+  UsersIcon,
+  PlusIcon,
+  EyeIcon,
+  ReportIcon,
+} from "@/components/icons/solar-icons";
+import { ArrowUpRight, ArrowDownRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const stats = [
-  {
-    title: "Total Revenue",
-    value: "EGP 125,430",
-    change: "+12.5%",
-    trend: "up",
-    icon: DollarSign,
-    color: "bg-green-500",
-  },
-  {
-    title: "Total Orders",
-    value: "1,234",
-    change: "+8.2%",
-    trend: "up",
-    icon: ShoppingCart,
-    color: "bg-blue-500",
-  },
-  {
-    title: "Total Products",
-    value: "716",
-    change: "+2.1%",
-    trend: "up",
-    icon: Package,
-    color: "bg-orange-500",
-  },
-  {
-    title: "Total Users",
-    value: "3,456",
-    change: "-1.5%",
-    trend: "down",
-    icon: Users,
-    color: "bg-purple-500",
-  },
-];
+// Stats data - This will be connected to real database in production
+// For development without database connection, we use placeholder data
+function getStats() {
+  // TODO: Replace with actual database queries when Prisma is fully configured
+  // Example of how it would work:
+  // const totalOrders = await prisma.order.count();
+  // const totalProducts = await prisma.product.count();
+  // etc.
+  
+  return {
+    totalRevenue: 0,
+    totalOrders: 0,
+    totalProducts: 0,
+    totalUsers: 0,
+    recentOrders: [] as Array<{ id: string; user: { name: string | null } | null; total: number; status: string }>,
+    orderChange: 0,
+    revenueChange: 0,
+    productChange: 0,
+    userChange: 0,
+  };
+}
 
-const recentOrders = [
-  { id: "ORD-001", customer: "Ahmed Mohamed", total: "EGP 2,500", status: "Pending", date: "Jan 9, 2026" },
-  { id: "ORD-002", customer: "Sara Ali", total: "EGP 1,800", status: "Shipped", date: "Jan 9, 2026" },
-  { id: "ORD-003", customer: "Mohamed Hassan", total: "EGP 3,200", status: "Delivered", date: "Jan 8, 2026" },
-  { id: "ORD-004", customer: "Fatma Youssef", total: "EGP 950", status: "Pending", date: "Jan 8, 2026" },
-  { id: "ORD-005", customer: "Omar Khaled", total: "EGP 4,100", status: "Processing", date: "Jan 7, 2026" },
-];
+// Format currency for Egyptian Pounds
+function formatCurrency(amount: number): string {
+  return new Intl.NumberFormat("ar-EG", {
+    style: "currency",
+    currency: "EGP",
+    minimumFractionDigits: 0,
+  }).format(amount);
+}
 
+// Static placeholder for top products (will be replaced with dynamic query)
 const topProducts = [
   { name: "Creality Ender 3 V3", sales: 156, revenue: "EGP 312,000" },
   { name: "Anycubic Photon Mono X", sales: 89, revenue: "EGP 178,000" },
@@ -61,39 +51,109 @@ const topProducts = [
 ];
 
 export default function AdminDashboard() {
+  const stats = getStats();
+
+  const statCards = [
+    {
+      title: "Total Revenue",
+      value: stats.totalRevenue > 0 ? formatCurrency(stats.totalRevenue) : "—",
+      change: stats.revenueChange,
+      icon: WalletIcon,
+      color: "bg-gradient-to-br from-emerald-500 to-emerald-600",
+      lightColor: "bg-emerald-50",
+    },
+    {
+      title: "Total Orders",
+      value: stats.totalOrders > 0 ? stats.totalOrders.toLocaleString() : "—",
+      change: stats.orderChange,
+      icon: CartIcon,
+      color: "bg-gradient-to-br from-blue-500 to-blue-600",
+      lightColor: "bg-blue-50",
+    },
+    {
+      title: "Total Products",
+      value: stats.totalProducts > 0 ? stats.totalProducts.toLocaleString() : "—",
+      change: stats.productChange,
+      icon: BoxIcon,
+      color: "bg-gradient-to-br from-orange-500 to-orange-600",
+      lightColor: "bg-orange-50",
+    },
+    {
+      title: "Total Users",
+      value: stats.totalUsers > 0 ? stats.totalUsers.toLocaleString() : "—",
+      change: stats.userChange,
+      icon: UsersIcon,
+      color: "bg-gradient-to-br from-purple-500 to-purple-600",
+      lightColor: "bg-purple-50",
+    },
+  ];
+
   return (
     <div className="space-y-6">
-      {/* Page Header */}
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-        <p className="text-gray-500">Welcome back! Here&apos;s what&apos;s happening with your store.</p>
+      {/* Page Header with Quick Actions */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
+          <p className="text-gray-500 text-sm">Welcome back! Here&apos;s what&apos;s happening with your store.</p>
+        </div>
+        
+        {/* Quick Actions Toolbar */}
+        <div className="flex items-center gap-2">
+          <Button asChild size="sm" className="bg-orange-500 hover:bg-orange-600 shadow-sm">
+            <Link href="/admin/products/new" className="flex items-center gap-2">
+              <PlusIcon className="h-4 w-4" />
+              <span className="hidden sm:inline">Add Product</span>
+            </Link>
+          </Button>
+          <Button asChild size="sm" variant="outline" className="shadow-sm">
+            <Link href="/admin/orders" className="flex items-center gap-2">
+              <EyeIcon className="h-4 w-4" />
+              <span className="hidden sm:inline">Orders</span>
+            </Link>
+          </Button>
+          <Button asChild size="sm" variant="outline" className="shadow-sm">
+            <Link href="/admin/settings" className="flex items-center gap-2">
+              <ReportIcon className="h-4 w-4" />
+              <span className="hidden sm:inline">Reports</span>
+            </Link>
+          </Button>
+        </div>
       </div>
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {stats.map((stat) => (
+      {/* Stats Grid - Compact Design */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {statCards.map((stat) => (
           <div
             key={stat.title}
-            className="bg-white rounded-xl p-6 shadow-sm border border-gray-100"
+            className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
           >
-            <div className="flex items-center justify-between">
-              <div className={`${stat.color} w-12 h-12 rounded-lg flex items-center justify-center`}>
-                <stat.icon className="h-6 w-6 text-white" />
+            <div className="flex items-start justify-between">
+              <div className={`${stat.color} w-11 h-11 rounded-xl flex items-center justify-center shadow-sm`}>
+                <stat.icon className="h-5 w-5 text-white" />
               </div>
-              <div className={`flex items-center gap-1 text-sm font-medium ${
-                stat.trend === "up" ? "text-green-600" : "text-red-600"
-              }`}>
-                {stat.change}
-                {stat.trend === "up" ? (
-                  <ArrowUpRight className="h-4 w-4" />
-                ) : (
-                  <ArrowDownRight className="h-4 w-4" />
-                )}
-              </div>
+              {stat.change !== 0 && (
+                <div className={`flex items-center gap-0.5 text-xs font-semibold px-2 py-1 rounded-full ${
+                  stat.change > 0 
+                    ? "text-emerald-700 bg-emerald-50" 
+                    : "text-red-700 bg-red-50"
+                }`}>
+                  {stat.change > 0 ? "+" : ""}{stat.change}%
+                  {stat.change > 0 ? (
+                    <ArrowUpRight className="h-3 w-3" />
+                  ) : (
+                    <ArrowDownRight className="h-3 w-3" />
+                  )}
+                </div>
+              )}
+              {stat.change === 0 && (
+                <span className="text-xs text-gray-400 bg-gray-50 px-2 py-1 rounded-full">
+                  No data
+                </span>
+              )}
             </div>
             <div className="mt-4">
               <h3 className="text-2xl font-bold text-gray-900">{stat.value}</h3>
-              <p className="text-gray-500 text-sm">{stat.title}</p>
+              <p className="text-gray-500 text-sm mt-0.5">{stat.title}</p>
             </div>
           </div>
         ))}
@@ -102,116 +162,100 @@ export default function AdminDashboard() {
       {/* Two Column Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Recent Orders */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100">
-          <div className="p-6 border-b border-gray-100">
-            <div className="flex items-center justify-between">
-              <h2 className="text-lg font-semibold text-gray-900">Recent Orders</h2>
-              <Link
-                href="/admin/orders"
-                className="text-orange-500 text-sm font-medium hover:underline"
-              >
-                View All
-              </Link>
-            </div>
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+          <div className="p-5 border-b border-gray-100 flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-gray-900">Recent Orders</h2>
+            <Link
+              href="/admin/orders"
+              className="text-orange-500 text-sm font-medium hover:underline"
+            >
+              View All
+            </Link>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Order ID</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Total</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                  <th className="px-5 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order</th>
+                  <th className="px-5 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+                  <th className="px-5 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
+                  <th className="px-5 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
-                {recentOrders.map((order) => (
-                  <tr key={order.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 text-sm font-medium text-gray-900">{order.id}</td>
-                    <td className="px-6 py-4 text-sm text-gray-500">{order.customer}</td>
-                    <td className="px-6 py-4 text-sm text-gray-900">{order.total}</td>
-                    <td className="px-6 py-4">
-                      <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${
-                        order.status === "Delivered" ? "bg-green-100 text-green-700" :
-                        order.status === "Shipped" ? "bg-blue-100 text-blue-700" :
-                        order.status === "Processing" ? "bg-yellow-100 text-yellow-700" :
-                        "bg-gray-100 text-gray-700"
-                      }`}>
-                        {order.status}
-                      </span>
+                {stats.recentOrders.length > 0 ? (
+                  stats.recentOrders.map((order: { id: string; user: { name: string | null } | null; total: number | unknown; status: string }) => (
+                    <tr key={order.id} className="hover:bg-gray-50">
+                      <td className="px-5 py-4 text-sm font-medium text-gray-900">
+                        {order.id.slice(0, 8)}...
+                      </td>
+                      <td className="px-5 py-4 text-sm text-gray-500">
+                        {order.user?.name || "Guest"}
+                      </td>
+                      <td className="px-5 py-4 text-sm text-gray-900">
+                        {formatCurrency(Number(order.total) || 0)}
+                      </td>
+                      <td className="px-5 py-4">
+                        <span className={`inline-flex px-2.5 py-1 text-xs font-medium rounded-full ${
+                          order.status === "delivered" ? "bg-emerald-100 text-emerald-700" :
+                          order.status === "shipped" ? "bg-blue-100 text-blue-700" :
+                          order.status === "processing" ? "bg-yellow-100 text-yellow-700" :
+                          order.status === "cancelled" ? "bg-red-100 text-red-700" :
+                          "bg-gray-100 text-gray-700"
+                        }`}>
+                          {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
+                        </span>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={4} className="px-5 py-8 text-center text-gray-500">
+                      <div className="flex flex-col items-center">
+                        <CartIcon className="h-8 w-8 text-gray-300 mb-2" />
+                        <p className="text-sm">No orders yet</p>
+                        <p className="text-xs text-gray-400">Orders will appear here once customers start purchasing</p>
+                      </div>
                     </td>
                   </tr>
-                ))}
+                )}
               </tbody>
             </table>
           </div>
         </div>
 
         {/* Top Products */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100">
-          <div className="p-6 border-b border-gray-100">
-            <div className="flex items-center justify-between">
-              <h2 className="text-lg font-semibold text-gray-900">Top Products</h2>
-              <Link
-                href="/admin/products"
-                className="text-orange-500 text-sm font-medium hover:underline"
-              >
-                View All
-              </Link>
-            </div>
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+          <div className="p-5 border-b border-gray-100 flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-gray-900">Top Products</h2>
+            <Link
+              href="/admin/products"
+              className="text-orange-500 text-sm font-medium hover:underline"
+            >
+              View All
+            </Link>
           </div>
-          <div className="p-6 space-y-4">
+          <div className="p-5 space-y-4">
             {topProducts.map((product, index) => (
               <div key={product.name} className="flex items-center gap-4">
-                <span className="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-sm font-medium text-gray-600">
+                <span className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold ${
+                  index === 0 ? "bg-yellow-100 text-yellow-700" :
+                  index === 1 ? "bg-gray-100 text-gray-600" :
+                  index === 2 ? "bg-orange-100 text-orange-700" :
+                  "bg-gray-50 text-gray-500"
+                }`}>
                   {index + 1}
                 </span>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-gray-900 truncate">{product.name}</p>
                   <p className="text-xs text-gray-500">{product.sales} sales</p>
                 </div>
-                <span className="text-sm font-medium text-gray-900">{product.revenue}</span>
+                <span className="text-sm font-semibold text-gray-900">{product.revenue}</span>
               </div>
             ))}
           </div>
         </div>
       </div>
-
-      {/* Quick Actions */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Link
-            href="/admin/products/new"
-            className="flex items-center gap-3 p-4 bg-orange-50 rounded-lg hover:bg-orange-100 transition-colors"
-          >
-            <Package className="h-5 w-5 text-orange-500" />
-            <span className="text-sm font-medium text-gray-900">Add Product</span>
-          </Link>
-          <Link
-            href="/admin/orders"
-            className="flex items-center gap-3 p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
-          >
-            <ShoppingCart className="h-5 w-5 text-blue-500" />
-            <span className="text-sm font-medium text-gray-900">View Orders</span>
-          </Link>
-          <Link
-            href="/admin/users"
-            className="flex items-center gap-3 p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors"
-          >
-            <Users className="h-5 w-5 text-purple-500" />
-            <span className="text-sm font-medium text-gray-900">Manage Users</span>
-          </Link>
-          <Link
-            href="/admin/settings"
-            className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            <TrendingUp className="h-5 w-5 text-gray-500" />
-            <span className="text-sm font-medium text-gray-900">View Reports</span>
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }
-

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { 
   Search, 
@@ -64,7 +65,15 @@ export function Header() {
           </button>
 
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
+          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+            <Image
+              src="/icons/logo.svg"
+              alt="Omega3D"
+              width={36}
+              height={36}
+              className="text-orange-500"
+              style={{ filter: "invert(60%) sepia(98%) saturate(1000%) hue-rotate(360deg)" }}
+            />
             <span className="text-2xl font-bold text-orange-500">
               Omega<span className="text-gray-900">3D</span>
             </span>

@@ -220,19 +220,17 @@ export default function HomePage() {
             for their 3D printing needs.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link 
-              href="/shop"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
-            >
-              Browse Products
-            </Link>
-            <Link 
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold border-2 border-white text-white rounded-lg hover:bg-white hover:text-orange-500 transition-colors"
-            >
-              Contact Us
-            </Link>
-          </div>
+            <Button size="xl" variant="secondary" asChild className="btn-animate">
+              <Link href="/shop">
+                Browse Products
+              </Link>
+            </Button>
+            <Button size="xl" variant="outline" asChild className="btn-animate border-white text-white hover:bg-white/20">
+              <Link href="/contact">
+                Contact Us
+              </Link>
+            </Button>
+        </div>
         </div>
       </section>
     </div>
