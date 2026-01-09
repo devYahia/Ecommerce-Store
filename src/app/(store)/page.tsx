@@ -25,7 +25,7 @@ export default function HomePage() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Egypt&apos;s Premier
               <span className="text-orange-500"> 3D Printing</span> Store
-            </h1>
+          </h1>
             <p className="text-xl text-gray-300 mb-8">
               Discover the latest FDM & Resin 3D printers from top brands like 
               Creality, Anycubic, Elegoo, and Bambu Lab. Plus filaments, parts, 
@@ -49,7 +49,7 @@ export default function HomePage() {
         {/* Decorative elements */}
         <div className="absolute right-0 bottom-0 w-1/2 h-full opacity-20">
           <div className="absolute right-10 bottom-10 w-64 h-64 bg-orange-500 rounded-full blur-3xl"></div>
-          <div className="absolute right-40 top-20 w-48 h-48 bg-blue-500 rounded-full blur-3xl"></div>
+          <div className="absolute right-40 top-20 w-48 h-48 bg-orange-400 rounded-full blur-3xl"></div>
         </div>
       </section>
 
@@ -61,18 +61,18 @@ export default function HomePage() {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { name: "FDM Printers", slug: "fdm-3d-printers", icon: Printer, color: "bg-blue-500" },
-              { name: "Resin Printers", slug: "resin-3d-printers", icon: Droplet, color: "bg-purple-500" },
-              { name: "Filament", slug: "filament", icon: Package, color: "bg-green-500" },
-              { name: "Spare Parts", slug: "spare-parts-tools", icon: Wrench, color: "bg-orange-500" },
+              { name: "FDM Printers", slug: "fdm-3d-printers", icon: Printer },
+              { name: "Resin Printers", slug: "resin-3d-printers", icon: Droplet },
+              { name: "Filament", slug: "filament", icon: Package },
+              { name: "Spare Parts", slug: "spare-parts-tools", icon: Wrench },
             ].map((category) => (
               <Link
                 key={category.slug}
                 href={`/category/${category.slug}`}
-                className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100"
               >
-                <div className={`${category.color} w-16 h-16 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <category.icon className="h-8 w-8 text-white" />
+                <div className="bg-orange-500/10 w-16 h-16 rounded-xl flex items-center justify-center mb-4 group-hover:bg-orange-500 transition-colors">
+                  <category.icon className="h-8 w-8 text-orange-500 group-hover:text-white transition-colors" />
                 </div>
                 <h3 className="font-semibold text-lg group-hover:text-orange-500 transition-colors">
                   {category.name}
@@ -96,33 +96,23 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
-            {siteConfig.brands.map((brand, index) => {
-              const colors = [
-                "from-blue-500 to-blue-600",
-                "from-green-500 to-emerald-600", 
-                "from-purple-500 to-violet-600",
-                "from-orange-500 to-amber-600",
-                "from-cyan-500 to-teal-600",
-                "from-rose-500 to-pink-600",
-              ];
-              return (
-                <Link
-                  key={brand.slug}
-                  href={`/brand/${brand.slug}`}
-                  className="group relative overflow-hidden rounded-2xl bg-white border border-gray-100 p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-                >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${colors[index % colors.length]} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                  <div className="relative z-10 flex flex-col items-center justify-center h-full min-h-[100px]">
-                    <span className="text-xl md:text-2xl font-bold text-gray-700 group-hover:text-white transition-colors duration-300">
-                      {brand.name}
-                    </span>
-                    <span className="text-xs text-gray-400 mt-2 group-hover:text-white/80 transition-colors duration-300">
-                      Official Partner
-                    </span>
-                  </div>
-                </Link>
-              );
-            })}
+            {siteConfig.brands.map((brand) => (
+              <Link
+                key={brand.slug}
+                href={`/brand/${brand.slug}`}
+                className="group relative overflow-hidden rounded-2xl bg-white border border-gray-200 p-6 shadow-sm hover:shadow-xl hover:border-orange-500 transition-all duration-300 hover:-translate-y-2"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10 flex flex-col items-center justify-center h-full min-h-[100px]">
+                  <span className="text-xl md:text-2xl font-bold text-gray-700 group-hover:text-white transition-colors duration-300">
+                    {brand.name}
+                  </span>
+                  <span className="text-xs text-gray-400 mt-2 group-hover:text-white/80 transition-colors duration-300">
+                    Official Partner
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -143,29 +133,26 @@ export default function HomePage() {
                 description: "Upload your design and we'll print it for you. Professional quality, fast turnaround.",
                 href: "/services/printing",
                 icon: Printer,
-                color: "bg-blue-500",
               },
               {
                 title: "Printer Maintenance",
                 description: "Expert repair and maintenance services for all major 3D printer brands.",
                 href: "/services/maintenance",
                 icon: Wrench,
-                color: "bg-orange-500",
               },
               {
                 title: "Training & Support",
                 description: "Learn how to get the most out of your 3D printer with our training programs.",
                 href: "/services/training",
                 icon: BookOpen,
-                color: "bg-green-500",
               },
             ].map((service) => (
               <Link
                 key={service.title}
                 href={service.href}
-                className="bg-gray-800 rounded-xl p-8 hover:bg-gray-750 transition-colors group"
+                className="bg-gray-800 rounded-xl p-8 hover:bg-gray-700 transition-colors group border border-gray-700 hover:border-orange-500"
               >
-                <div className={`${service.color} w-14 h-14 rounded-xl flex items-center justify-center mb-4`}>
+                <div className="bg-orange-500 w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <service.icon className="h-7 w-7 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3 group-hover:text-orange-500 transition-colors">
@@ -243,7 +230,7 @@ export default function HomePage() {
                 Contact Us
               </Link>
             </Button>
-          </div>
+        </div>
         </div>
       </section>
     </div>
